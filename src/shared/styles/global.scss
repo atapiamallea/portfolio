@@ -1,7 +1,92 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+@use 'tokens' as t;
+@use 'reset';
+
+// ---------- tokens → CSS custom properties ----------
+:root {
+  @each $name, $value in t.$palette {
+    --color-#{$name}: #{$value};
+  }
+
+  @each $name, $value in t.$radii {
+    --radius-#{$name}: #{$value};
+  }
+
+  --border-width: #{t.$border-width};
+  --border: var(--border-width) solid var(--color-ink);
+  --shadow-offset: #{t.$shadow-offset};
+  --shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--color-ink);
+  --grid-size: #{t.$grid-size};
+  --nav-height: #{t.$nav-height};
+
+  // Color del anillo de foco. Las secciones oscuras lo cambian a lima.
+  --focus-color: var(--color-ink);
+
+  --font-display: #{t.$font-display};
+  --font-body: #{t.$font-body};
+
+  --content-max-width: 1300px;
+  --section-padding-x: clamp(1rem, 4vw, 2rem);
+}
+
+// ---------- acentos ----------
+// Un componente con data-accent="lime" recibe --accent-bg y --accent-fg
+// y decide dónde usarlos (fondo, texto, borde…).
+@each $accent, $text in t.$accents {
+  [data-accent='#{$accent}'] {
+    --accent-bg: var(--color-#{$accent});
+    --accent-fg: var(--color-#{$text});
+  }
+}
+
+// ---------- base ----------
+html {
+  // Al saltar a un ancla o al moverse con Tab, el contenido no queda tapado por la navbar sticky.
+  scroll-padding-top: calc(var(--nav-height) + 1rem);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  font-family: var(--font-body);
+  line-height: 1.5;
+  color: var(--color-ink);
+  background: var(--color-paper);
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+::selection {
+  color: var(--color-ink);
+  background: var(--color-lime);
+}
+
+// Foco visible solo al navegar con teclado (no al hacer clic).
+// Tinta sobre fondos claros (≥ 15:1); las secciones oscuras usan --focus-color: lime.
+:focus-visible {
+  outline: 3px solid var(--focus-color);
+  outline-offset: 3px;
+}
+
+// Texto solo para lectores de pantalla (p. ej. "abre en una pestaña nueva").
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
