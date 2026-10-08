@@ -1,0 +1,377 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Portfolio X</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Archivo:wght@800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0d0d0d;
+  --paper: #f5f3ea;
+  --lime: #c6f432;
+  --violet: #8e7cf3;
+  --pink: #f59ae6;
+  --orange: #ff6b1a;
+  --blue: #4c7dff;
+  --border: 3px solid var(--ink);
+  --shadow: 6px 6px 0 var(--ink);
+  --display: "Archivo", "Space Grotesk", sans-serif;
+  --body: "Space Grotesk", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--body); background: var(--paper); color: var(--ink); line-height: 1.5; overflow-x: clip; }
+.page { overflow-x: clip; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+h1, h2, h3 { font-family: var(--display); font-weight: 900; line-height: .95; letter-spacing: -.02em; text-transform: uppercase; }
+
+/* ---------- utilidades ---------- */
+.tag { display: inline-block; font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; padding: .35rem .8rem; background: var(--lime); color: var(--ink); border: var(--border); border-radius: 99px; margin-bottom: 1.25rem; }
+.tag--dark { background: var(--ink); color: var(--lime); }
+.hl { background: var(--lime); padding: 0 .15em; border: var(--border); border-radius: 12px; display: inline-block; transform: rotate(-2deg); }
+.hl--pink { background: var(--pink); }
+.hl--lime { background: var(--lime); }
+
+.btn { display: inline-block; font-weight: 700; padding: .9rem 1.6rem; border: var(--border); border-radius: 99px; box-shadow: var(--shadow); transition: transform .15s, box-shadow .15s; }
+.btn:hover { transform: translate(3px, 3px); box-shadow: 3px 3px 0 var(--ink); }
+.btn:active { transform: translate(6px, 6px); box-shadow: 0 0 0 var(--ink); }
+.btn--lime { background: var(--lime); }
+.btn--ghost { background: var(--paper); }
+.btn--dark { background: var(--ink); color: var(--lime); box-shadow: 6px 6px 0 var(--paper); }
+.btn--dark:hover { box-shadow: 3px 3px 0 var(--paper); }
+.btn--xl { font-size: clamp(1.1rem, 3vw, 2rem); padding: 1.1rem 2.2rem; }
+
+/* efecto glaseado */
+.glass {
+  background: rgba(255, 255, 255, .35);
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  border: var(--border);
+  border-radius: 28px;
+  box-shadow: var(--shadow), inset 0 0 0 2px rgba(255, 255, 255, .55), inset 0 12px 24px rgba(255, 255, 255, .35);
+}
+
+/* cuadrícula */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(13, 13, 13, .18) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(13, 13, 13, .18) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* ---------- nav ---------- */
+.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; display: flex; justify-content: space-between; align-items: center; padding: .8rem 2rem; background: var(--paper); border-bottom: var(--border); }
+.nav__logo { font-family: var(--display); font-weight: 900; font-size: 1.5rem; }
+.nav__logo span { color: var(--violet); }
+.nav nav { display: flex; gap: 1.5rem; align-items: center; font-weight: 500; }
+.nav nav a:not(.nav__cta):hover { text-decoration: underline; text-decoration-thickness: 3px; text-decoration-color: var(--lime); }
+.nav__cta { background: var(--ink); color: var(--lime); padding: .5rem 1.1rem; border-radius: 99px; font-weight: 700; }
+
+/* ---------- hero ---------- */
+.hero { position: relative; min-height: min(80vh, 720px); display: flex; align-items: center; padding: 4rem 2rem; overflow: hidden; }
+#jelly { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hero__content { position: relative; z-index: 2; max-width: 900px; margin: 0 auto 0 max(0px, 4vw); pointer-events: none; }
+.hero__content a { pointer-events: auto; }
+.hero h1 { font-size: clamp(4rem, 14vw, 11rem); margin-bottom: 1.5rem; }
+.hero .star { color: var(--orange); margin-left: .1em; display: inline-block; animation: spin 8s linear infinite; }
+.hero__sub { font-size: clamp(1.05rem, 2vw, 1.4rem); max-width: 520px; margin-bottom: 2rem; }
+.hero__btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ---------- cinta diagonal ---------- */
+.tape { background: var(--lime); border-block: var(--border); transform: rotate(-2deg) scale(1.05); margin: -1.5rem 0; position: relative; z-index: 5; overflow: hidden; }
+.tape__track { display: flex; width: max-content; animation: marquee 22s linear infinite; }
+.tape__track span { font-family: var(--display); font-weight: 900; font-size: 1.4rem; padding: .7rem 1.5rem; white-space: nowrap; }
+.tape__track span::after { content: "✶"; margin-left: 3rem; color: var(--violet); }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+/* ---------- sobre mí ---------- */
+.about { background: var(--violet); padding: 8rem 2rem 6rem; display: grid; grid-template-columns: 1.6fr 1fr; gap: 2rem; align-items: center; background-image: linear-gradient(rgba(255,255,255,.2) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.2) 1px, transparent 1px); background-size: 48px 48px; }
+.about__card { padding: 2.5rem; }
+.about__card h2 { font-size: clamp(2rem, 5vw, 3.6rem); margin-bottom: 1.5rem; }
+.about__card p { font-size: 1.1rem; margin-bottom: 1rem; max-width: 60ch; }
+.about__stats { display: grid; gap: 1rem; }
+.stat { display: flex; align-items: baseline; gap: 1rem; padding: 1rem 1.5rem; border: var(--border); border-radius: 20px; box-shadow: var(--shadow); transition: transform .2s; }
+.stat:hover { transform: rotate(-2deg) scale(1.03); }
+.stat b { font-family: var(--display); font-size: 4rem; line-height: 1; }
+.stat span { font-weight: 700; text-transform: uppercase; }
+.stat--lime { background: var(--lime); } .stat--orange { background: var(--orange); } .stat--blue { background: var(--blue); color: #fff; }
+
+/* ---------- proyectos ---------- */
+.projects { background: var(--pink); padding: 6rem 2rem; background-image: linear-gradient(rgba(13,13,13,.15) 1px, transparent 1px), linear-gradient(90deg, rgba(13,13,13,.15) 1px, transparent 1px); background-size: 48px 48px; border-block: var(--border); }
+.section-head { margin-bottom: 3rem; }
+.section-head h2 { font-size: clamp(2.5rem, 7vw, 5.5rem); }
+.projects__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; max-width: 1300px; margin: 0 auto; }
+.card { position: relative; padding: 1.25rem; display: flex; flex-direction: column; gap: .8rem; transition: transform .2s, box-shadow .2s; }
+.card:hover { transform: translate(-4px, -4px) rotate(-1deg); box-shadow: 10px 10px 0 var(--ink), inset 0 0 0 2px rgba(255,255,255,.55); }
+.card h3 { font-size: 1.8rem; }
+.card p { font-size: .95rem; flex: 1; }
+.card__thumb { height: 170px; border: var(--border); border-radius: 18px; display: grid; place-items: center; font-family: var(--display); font-weight: 900; font-size: 5rem; overflow: hidden; }
+.thumb--1 { background: var(--lime); } .thumb--2 { background: var(--violet); color: #fff; } .thumb--3 { background: var(--orange); } .thumb--4 { background: var(--ink); color: var(--lime); }
+.badge { position: absolute; top: .6rem; right: .6rem; z-index: 2; font-size: .75rem; font-weight: 700; text-transform: uppercase; padding: .25rem .7rem; border: var(--border); border-radius: 99px; transform: rotate(4deg); }
+.badge--team { background: var(--blue); color: #fff; } .badge--solo { background: var(--lime); }
+.chips { display: flex; flex-wrap: wrap; gap: .4rem; }
+.chips li { font-size: .75rem; font-weight: 700; padding: .2rem .65rem; border: 2px solid var(--ink); border-radius: 99px; background: var(--paper); }
+.card__links { display: flex; gap: 1rem; font-weight: 700; padding-top: .4rem; border-top: 2px dashed var(--ink); }
+.card__links a:hover { color: var(--violet); }
+
+/* ---------- skills ---------- */
+.skills { background: var(--ink); color: var(--paper); padding: 6rem 2rem; background-image: linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px); background-size: 48px 48px; }
+.skills__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; max-width: 1200px; margin: 0 auto; }
+.skill { color: var(--ink); padding: 1.8rem; border: 3px solid var(--paper); border-radius: 24px; box-shadow: 6px 6px 0 var(--paper); display: flex; flex-direction: column; gap: .6rem; transition: transform .25s cubic-bezier(.3, 1.8, .5, 1); }
+.skill:hover { transform: scale(1.06) rotate(-1.5deg); }
+.skill b { font-family: var(--display); font-weight: 900; font-size: 1.7rem; text-transform: uppercase; }
+.s-lime { background: var(--lime); } .s-violet { background: var(--violet); } .s-pink { background: var(--pink); } .s-orange { background: var(--orange); } .s-blue { background: var(--blue); color: #fff; } .s-cream { background: var(--paper); }
+
+/* ---------- contacto ---------- */
+.contact { background: var(--lime); text-align: center; padding: 7rem 2rem; display: flex; flex-direction: column; align-items: center; gap: 2.5rem; border-top: var(--border); }
+.contact h2 { font-size: clamp(3rem, 10vw, 8rem); }
+.contact__links { display: flex; gap: 1.5rem; font-weight: 700; font-size: 1.2rem; }
+.contact__links a { border-bottom: 3px solid var(--ink); }
+.contact__links a:hover { background: var(--ink); color: var(--lime); }
+.footer { background: var(--ink); color: var(--paper); text-align: center; padding: 1.2rem; font-size: .9rem; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 800px) {
+  .nav nav a:not(.nav__cta) { display: none; }
+  .about { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tape__track, .hero .star { animation: none; }
+}
+
+</style>
+<div class="page">
+
+<header class="nav">
+  <a class="nav__logo" href="#top">X<span>/dev</span></a>
+  <nav>
+    <a href="#sobre-mi">Sobre mí</a>
+    <a href="#proyectos">Proyectos</a>
+    <a href="#skills">Skills</a>
+    <a class="nav__cta" href="#contacto">Contacto ↗</a>
+  </nav>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero">
+    <canvas id="jelly" aria-hidden="true"></canvas>
+    <div class="hero__content">
+      <p class="tag">Disponible para trabajar</p>
+      <h1>HOLA,<br>SOY <span class="hl">X</span><span class="star">✶</span></h1>
+      <p class="hero__sub">Desarrollador <b>Full Stack</b> recién graduado. Construyo interfaces con personalidad y APIs que funcionan.</p>
+      <div class="hero__btns">
+        <a class="btn btn--lime" href="#proyectos">Ver proyectos ↓</a>
+        <a class="btn btn--ghost" href="#contacto">Hablemos</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CINTA -->
+  <div class="tape" aria-hidden="true">
+    <div class="tape__track">
+      <span>REACT</span><span>JAVASCRIPT</span><span>NODE.JS</span><span>EXPRESS</span><span>MONGODB</span><span>SQL</span><span>HTML</span><span>CSS / SASS</span><span>GIT</span>
+      <span>REACT</span><span>JAVASCRIPT</span><span>NODE.JS</span><span>EXPRESS</span><span>MONGODB</span><span>SQL</span><span>HTML</span><span>CSS / SASS</span><span>GIT</span>
+    </div>
+  </div>
+
+  <!-- SOBRE MI -->
+  <section class="about" id="sobre-mi">
+    <div class="about__card glass">
+      <p class="tag tag--dark">01 — Sobre mí</p>
+      <h2>De cero a <span class="hl hl--pink">full stack</span> en un bootcamp.</h2>
+      <p>Me gradué hace poco de un bootcamp intensivo de desarrollo full stack. Trabajé en equipo en proyectos grupales con metodologías ágiles y llevé un proyecto individual de principio a fin: diseño, frontend, backend y despliegue.</p>
+      <p>Me gusta que lo que construyo se vea bien <i>y</i> funcione bien.</p>
+    </div>
+    <div class="about__stats">
+      <div class="stat stat--lime"><b>4</b><span>proyectos</span></div>
+      <div class="stat stat--orange"><b>3</b><span>en equipo</span></div>
+      <div class="stat stat--blue"><b>1</b><span>individual</span></div>
+    </div>
+  </section>
+
+  <!-- PROYECTOS -->
+  <section class="projects" id="proyectos">
+    <div class="section-head">
+      <p class="tag tag--dark">02 — Proyectos</p>
+      <h2>TRABAJOS<br><span class="hl hl--lime">SELECCIONADOS</span></h2>
+    </div>
+
+    <div class="projects__grid">
+      <article class="card glass">
+        <span class="badge badge--team">Grupal</span>
+        <div class="card__thumb thumb--1"><span>01</span></div>
+        <h3>Proyecto Uno</h3>
+        <p>Plataforma de ejemplo: descripción corta de qué problema resuelve y tu rol dentro del equipo.</p>
+        <ul class="chips"><li>React</li><li>Node</li><li>MongoDB</li></ul>
+        <div class="card__links"><a href="#">Demo ↗</a><a href="#">Código ↗</a></div>
+      </article>
+
+      <article class="card glass">
+        <span class="badge badge--team">Grupal</span>
+        <div class="card__thumb thumb--2"><span>02</span></div>
+        <h3>Proyecto Dos</h3>
+        <p>App de ejemplo con autenticación, panel y CRUD completo. Cuenta qué parte construiste tú.</p>
+        <ul class="chips"><li>React</li><li>Express</li><li>SQL</li></ul>
+        <div class="card__links"><a href="#">Demo ↗</a><a href="#">Código ↗</a></div>
+      </article>
+
+      <article class="card glass">
+        <span class="badge badge--team">Grupal</span>
+        <div class="card__thumb thumb--3"><span>03</span></div>
+        <h3>Proyecto Tres</h3>
+        <p>Aplicación de ejemplo con consumo de APIs externas y diseño responsive.</p>
+        <ul class="chips"><li>JavaScript</li><li>API REST</li><li>Sass</li></ul>
+        <div class="card__links"><a href="#">Demo ↗</a><a href="#">Código ↗</a></div>
+      </article>
+
+      <article class="card glass card--solo">
+        <span class="badge badge--solo">Individual</span>
+        <div class="card__thumb thumb--4"><span>04</span></div>
+        <h3>Proyecto Final</h3>
+        <p>Mi proyecto individual de principio a fin: diseño, frontend, backend y despliegue.</p>
+        <ul class="chips"><li>React</li><li>Node</li><li>MongoDB</li><li>Deploy</li></ul>
+        <div class="card__links"><a href="#">Demo ↗</a><a href="#">Código ↗</a></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="skills" id="skills">
+    <div class="section-head section-head--light">
+      <p class="tag">03 — Skills</p>
+      <h2>LO QUE <span class="hl">SÉ HACER</span></h2>
+    </div>
+    <div class="skills__grid">
+      <div class="skill s-lime"><b>Frontend</b><span>React · JavaScript · HTML · CSS · Sass</span></div>
+      <div class="skill s-violet"><b>Backend</b><span>Node.js · Express · API REST</span></div>
+      <div class="skill s-pink"><b>Bases de datos</b><span>MongoDB · SQL</span></div>
+      <div class="skill s-orange"><b>Herramientas</b><span>Git · GitHub · Postman · Figma</span></div>
+      <div class="skill s-blue"><b>Equipo</b><span>Scrum · Code review · Comunicación</span></div>
+      <div class="skill s-cream"><b>Siempre aprendiendo</b><span>TypeScript · Testing · Next.js</span></div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="contact" id="contacto">
+    <h2>¿TRABAJAMOS<br>JUNTOS?</h2>
+    <a class="btn btn--dark btn--xl" href="mailto:hola@ejemplo.com">hola@ejemplo.com ↗</a>
+    <div class="contact__links">
+      <a href="#">GitHub</a><a href="#">LinkedIn</a><a href="#">CV (PDF)</a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">© 2026 X — Hecho con React, café y mucho CSS.</footer>
+
+
+</div>
+<script>
+// Red tipo gelatina: cada punto es un resorte que el cursor empuja y que vuelve a su sitio.
+const canvas = document.getElementById("jelly");
+const ctx = canvas.getContext("2d");
+
+const SPACING = 44;      // distancia entre puntos
+const RADIUS = 170;      // radio de influencia del cursor
+const PUSH = 0.9;        // fuerza con la que el cursor empuja
+const STIFFNESS = 0.06;  // qué tan rápido vuelve (resorte)
+const DAMPING = 0.86;    // rozamiento: menos = más rebote de gelatina
+
+let points = [], cols = 0, rows = 0, w = 0, h = 0;
+const mouse = { x: -9999, y: -9999, vx: 0, vy: 0 };
+const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+function resize() {
+  const dpr = window.devicePixelRatio || 1;
+  w = canvas.clientWidth;
+  h = canvas.clientHeight;
+  canvas.width = w * dpr;
+  canvas.height = h * dpr;
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+  cols = Math.ceil(w / SPACING) + 2;
+  rows = Math.ceil(h / SPACING) + 2;
+  points = [];
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      const x = c * SPACING - SPACING / 2;
+      const y = r * SPACING - SPACING / 2;
+      points.push({ ox: x, oy: y, x, y, vx: 0, vy: 0 });
+    }
+  }
+}
+
+canvas.parentElement.addEventListener("pointermove", (e) => {
+  const rect = canvas.getBoundingClientRect();
+  const nx = e.clientX - rect.left;
+  const ny = e.clientY - rect.top;
+  mouse.vx = nx - mouse.x;
+  mouse.vy = ny - mouse.y;
+  mouse.x = nx;
+  mouse.y = ny;
+});
+canvas.parentElement.addEventListener("pointerleave", () => { mouse.x = mouse.y = -9999; });
+
+function step() {
+  for (const p of points) {
+    const dx = p.x - mouse.x;
+    const dy = p.y - mouse.y;
+    const dist = Math.hypot(dx, dy);
+
+    if (dist < RADIUS) {
+      const f = (1 - dist / RADIUS) ** 2;
+      // empuja alejándose del cursor y arrastra un poco en la dirección del movimiento
+      p.vx += (dx / (dist || 1)) * f * PUSH * 6 + mouse.vx * f * 0.12;
+      p.vy += (dy / (dist || 1)) * f * PUSH * 6 + mouse.vy * f * 0.12;
+    }
+    p.vx += (p.ox - p.x) * STIFFNESS;
+    p.vy += (p.oy - p.y) * STIFFNESS;
+    p.vx *= DAMPING;
+    p.vy *= DAMPING;
+    p.x += p.vx;
+    p.y += p.vy;
+  }
+  mouse.vx *= 0.8;
+  mouse.vy *= 0.8;
+}
+
+function draw() {
+  ctx.clearRect(0, 0, w, h);
+  ctx.lineWidth = 1.5;
+  ctx.strokeStyle = "rgba(13,13,13,.28)";
+
+  ctx.beginPath();
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      const p = points[r * cols + c];
+      if (c < cols - 1) { const q = points[r * cols + c + 1]; ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y); }
+      if (r < rows - 1) { const q = points[(r + 1) * cols + c]; ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y); }
+    }
+  }
+  ctx.stroke();
+
+  // nodos: los más desplazados se vuelven lima/violeta
+  for (const p of points) {
+    const d = Math.hypot(p.x - p.ox, p.y - p.oy);
+    const t = Math.min(d / 30, 1);
+    ctx.fillStyle = t > 0.5 ? "#8e7cf3" : t > 0.05 ? "#ff6b1a" : "rgba(13,13,13,.45)";
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, 2 + t * 4, 0, Math.PI * 2);
+    ctx.fill();
+  }
+}
+
+function loop() {
+  step();
+  draw();
+  requestAnimationFrame(loop);
+}
+
+addEventListener("resize", resize);
+resize();
+reduceMotion ? draw() : loop();
+
+</script>
+
+</body></html>
