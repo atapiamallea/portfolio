@@ -2,16 +2,16 @@
 // Uso en un componente: @use '@/shared/styles/mixins' as *;
 
 @use 'sass:map';
-@use 'tokens' as t;
+@use 'tokens';
 
 /// Media query mobile-first: aplica desde el breakpoint indicado hacia arriba.
 /// @param {String} $breakpoint - 'sm' | 'md' | 'lg'
 @mixin respond-to($breakpoint) {
-  @if not map.has-key(t.$breakpoints, $breakpoint) {
-    @error 'Breakpoint desconocido: "#{$breakpoint}". Usa uno de: #{map.keys(t.$breakpoints)}';
+  @if not map.has-key(tokens.$breakpoints, $breakpoint) {
+    @error 'Breakpoint desconocido: "#{$breakpoint}". Usa uno de: #{map.keys(tokens.$breakpoints)}';
   }
 
-  @media (min-width: map.get(t.$breakpoints, $breakpoint)) {
+  @media (min-width: map.get(tokens.$breakpoints, $breakpoint)) {
     @content;
   }
 }

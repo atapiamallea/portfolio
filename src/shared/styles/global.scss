@@ -1,40 +1,40 @@
-@use 'tokens' as t;
+@use 'tokens';
 @use 'reset';
 
 // ---------- tokens → CSS custom properties ----------
 :root {
-  @each $name, $value in t.$palette {
+  @each $name, $value in tokens.$palette {
     --color-#{$name}: #{$value};
   }
 
-  @each $name, $value in t.$radii {
+  @each $name, $value in tokens.$radii {
     --radius-#{$name}: #{$value};
   }
 
-  --border-width: #{t.$border-width};
+  --border-width: #{tokens.$border-width};
   --border: var(--border-width) solid var(--color-ink);
-  --shadow-offset: #{t.$shadow-offset};
+  --shadow-offset: #{tokens.$shadow-offset};
   --shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--color-ink);
-  --grid-size: #{t.$grid-size};
-  --nav-height: #{t.$nav-height};
+  --grid-size: #{tokens.$grid-size};
+  --nav-height: #{tokens.$nav-height};
 
   // Color del anillo de foco. Las secciones oscuras lo cambian a lima.
   --focus-color: var(--color-ink);
 
-  --font-display: #{t.$font-display};
-  --font-body: #{t.$font-body};
+  --font-display: #{tokens.$font-display};
+  --font-body: #{tokens.$font-body};
 
   --content-max-width: 1300px;
   --section-padding-x: clamp(1rem, 4vw, 2rem);
 }
 
 // ---------- acentos ----------
-// Un componente con data-accent="lime" recibe --accent-bg y --accent-fg
+// Un componente con data-accent="lime" recibe --accent-background y --accent-text
 // y decide dónde usarlos (fondo, texto, borde…).
-@each $accent, $text in t.$accents {
+@each $accent, $text-color in tokens.$accents {
   [data-accent='#{$accent}'] {
-    --accent-bg: var(--color-#{$accent});
-    --accent-fg: var(--color-#{$text});
+    --accent-background: var(--color-#{$accent});
+    --accent-text: var(--color-#{$text-color});
   }
 }
 
