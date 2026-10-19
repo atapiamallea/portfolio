@@ -2,6 +2,8 @@
 
 .label {
   display: inline-block;
+  // Dentro de un grid o un flex el navegador estira a los hijos; así mide lo que su texto.
+  width: fit-content;
   padding: 0.35rem 0.8rem;
   font-size: 0.8rem;
   font-weight: 700;

@@ -1,0 +1,12 @@
+// Estilos del escaparate temporal. Desaparecen junto con él al montar las secciones reales.
+
+// La tarjeta es la referencia para colocar el Tag en su esquina.
+.projectCard {
+  position: relative;
+}
+
+.projectCardTag {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+}
