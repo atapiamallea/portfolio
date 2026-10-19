@@ -10,10 +10,15 @@ interface TagProps {
   children: ReactNode
 }
 
-/** Etiqueta en forma de píldora: "Disponible para trabajar", "01 — Sobre mí"… */
+/**
+ * Sello pequeño e inclinado que marca un estado: "Grupal", "Individual"…
+ * No se posiciona solo: quien lo usa decide dónde va (p. ej. en la esquina de una tarjeta).
+ */
 export function Tag({ accent = 'lime', className, children }: TagProps) {
+  const tagClassName = joinClassNames(styles.tag, className)
+
   return (
-    <span className={joinClassNames(styles.tag, className)} data-accent={accent}>
+    <span className={tagClassName} data-accent={accent}>
       {children}
     </span>
   )
