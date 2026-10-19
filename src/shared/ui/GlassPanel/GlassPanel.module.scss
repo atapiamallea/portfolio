@@ -1,0 +1,18 @@
+@use '@/shared/styles/mixins' as *;
+
+.panel {
+  @include glass;
+}
+
+.md {
+  padding: 1.25rem;
+}
+
+// En móvil el padding grande se reduce para no robarle ancho al texto.
+.lg {
+  padding: 1.5rem;
+
+  @include respond-to('md') {
+    padding: 2.5rem;
+  }
+}

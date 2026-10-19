@@ -1,0 +1,17 @@
+@use '@/shared/styles/mixins' as *;
+
+.tag {
+  display: inline-block;
+  // Dentro de un grid o un flex el navegador estira a los hijos; así mide lo que su texto.
+  width: fit-content;
+  padding: 0.25rem 0.7rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--accent-text);
+  background: var(--accent-background);
+  border-radius: var(--radius-pill);
+  transform: rotate(4deg);
+
+  @include brutal-border;
+}

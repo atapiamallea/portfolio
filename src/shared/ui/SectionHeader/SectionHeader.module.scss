@@ -1,0 +1,10 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  align-items: flex-start;
+}
+
+.title {
+  font-size: clamp(2.5rem, 7vw, 5.5rem);
+}

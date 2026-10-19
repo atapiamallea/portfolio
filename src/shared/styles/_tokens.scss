@@ -1,0 +1,52 @@
+// Fuente de verdad del sistema de diseño.
+// Estos valores se publican como CSS custom properties en global.scss;
+// los componentes usan las variables CSS, no estos mapas directamente.
+
+$palette: (
+  'ink': #0d0d0d,
+  'paper': #f5f3ea,
+  'lime': #c6f432,
+  'violet': #8e7cf3,
+  // Violeta para TEXTO sobre fondos claros (6:1 sobre paper).
+  'violet-deep': #5b3fd6,
+  'pink': #f59ae6,
+  'orange': #ff6b1a,
+  'blue': #4c7dff,
+  'white': #fff,
+);
+
+// Acento → color de texto legible sobre él (WCAG AA: ≥ 4.5:1 para texto normal).
+// Debe coincidir con el tipo `Accent` de tokens.ts.
+$accents: (
+  'lime': 'ink',
+  'violet': 'ink',
+  'pink': 'ink',
+  'orange': 'ink',
+  // Blanco sobre azul solo da 3.7:1.
+  'blue': 'ink',
+  'ink': 'lime',
+  'paper': 'ink',
+);
+
+$radii: (
+  'sm': 12px,
+  'md': 18px,
+  'lg': 24px,
+  'xl': 28px,
+  'pill': 999px,
+);
+
+// Mobile-first: cada breakpoint es el ancho MÍNIMO a partir del cual aplica.
+$breakpoints: (
+  'sm': 600px,
+  'md': 800px,
+  'lg': 1100px,
+);
+
+$nav-height: 4.5rem;
+$border-width: 3px;
+$shadow-offset: 6px;
+$grid-size: 48px;
+
+$font-display: 'Archivo', 'Space Grotesk', sans-serif;
+$font-body: 'Space Grotesk', system-ui, sans-serif;
