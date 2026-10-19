@@ -10,50 +10,45 @@ import {
 } from '@/shared/ui'
 import styles from './App.module.scss'
 
-// Escaparate temporal del sistema de diseño (Fase 1). Se sustituye por las secciones reales.
+function logButtonClick() {
+  console.log('Button sin href: se renderiza como <button>')
+}
+
+// Escaparate temporal del sistema de diseño (Fase 1): cada componente en el sitio
+// donde se usará. Se sustituye por las secciones reales a partir de la Fase 3.
 export function App() {
   return (
-    <main style={{ display: 'grid', gap: '2rem', padding: '3rem 2rem' }}>
-      <SectionLabel>Disponible para trabajar</SectionLabel>
+    <main>
+      <Section id="inicio" titleId="inicio-title" accent="paper">
+        <div className={styles.hero}>
+          <SectionLabel>Disponible para trabajar</SectionLabel>
+          <h1 id="inicio-title" className={styles.heroTitle}>
+            Hola, soy <Highlight>X</Highlight>
+          </h1>
+          <div className={styles.buttonRow}>
+            <Button href="#proyectos">Ver proyectos ↓</Button>
+            <Button href="#contacto" variant="secondary">
+              Hablemos
+            </Button>
+            <Button onClick={logButtonClick}>Soy un &lt;button&gt;</Button>
+          </div>
+        </div>
+      </Section>
 
-      <h1 style={{ fontSize: 'clamp(3rem, 10vw, 7rem)' }}>
-        Hola, soy <Highlight>X</Highlight>
-      </h1>
-      <h2 style={{ fontSize: '3rem' }}>
-        De cero a <Highlight accent="pink">full stack</Highlight>
-      </h2>
-
-      <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-        <Button href="#proyectos">Ver proyectos ↓</Button>
-        <Button href="#contacto" variant="secondary">
-          Hablemos
-        </Button>
-        <Button onClick={() => console.log('click')}>Soy un &lt;button&gt;</Button>
-      </div>
-
-      <div style={{ background: 'var(--color-ink)', padding: '2rem' }}>
-        <Button href="mailto:hola@ejemplo.com" variant="inverted" size="lg">
-          hola@ejemplo.com ↗
-        </Button>
-      </div>
-
-      <div
-        style={{ display: 'grid', gap: '2rem', padding: '2rem', background: 'var(--color-pink)' }}
-      >
-        <GlassPanel element="article" className={styles.projectCard}>
-          <Tag accent="blue" className={styles.projectCardTag}>
-            Grupal
-          </Tag>
-          <h3>Proyecto Uno</h3>
-          <p>Descripción corta del proyecto.</p>
-          <ChipList label="Tecnologías usadas" items={['React', 'Node', 'MongoDB']} />
+      <Section id="sobre-mi" titleId="sobre-mi-title" accent="violet">
+        <GlassPanel padding="lg" className={styles.aboutPanel}>
+          <SectionHeader
+            label="01 — Sobre mí"
+            titleId="sobre-mi-title"
+            title={
+              <>
+                De cero a <Highlight accent="pink">full stack</Highlight>
+              </>
+            }
+          />
+          <p>GlassPanel con padding grande: cristal sobre la cuadrícula violeta.</p>
         </GlassPanel>
-
-        <GlassPanel padding="lg">
-          <SectionLabel accent="ink">01 — Sobre mí</SectionLabel>
-          <h2>Panel grande</h2>
-        </GlassPanel>
-      </div>
+      </Section>
 
       <Section id="proyectos" titleId="proyectos-title" accent="pink">
         <SectionHeader
@@ -65,7 +60,29 @@ export function App() {
             </>
           }
         />
-        <p>Aquí irá la cuadrícula de proyectos.</p>
+        <div className={styles.projectGrid}>
+          <GlassPanel element="article" className={styles.projectCard}>
+            <Tag accent="blue" className={styles.projectCardTag}>
+              Grupal
+            </Tag>
+            <div className={styles.projectThumbnail} data-accent="lime">
+              01
+            </div>
+            <h3>Proyecto Uno</h3>
+            <p>Descripción corta del proyecto.</p>
+            <ChipList label="Tecnologías usadas" items={['React', 'Node', 'MongoDB']} />
+          </GlassPanel>
+
+          <GlassPanel element="article" className={styles.projectCard}>
+            <Tag className={styles.projectCardTag}>Individual</Tag>
+            <div className={styles.projectThumbnail} data-accent="ink">
+              02
+            </div>
+            <h3>Proyecto Final</h3>
+            <p>Proyecto individual de principio a fin.</p>
+            <ChipList label="Tecnologías usadas" items={['React', 'Node', 'MongoDB', 'Deploy']} />
+          </GlassPanel>
+        </div>
       </Section>
 
       <Section id="skills" titleId="skills-title" accent="ink">
@@ -79,7 +96,30 @@ export function App() {
             </>
           }
         />
-        <p>Sección oscura: texto claro y foco lima.</p>
+        <p>
+          Sección oscura: texto claro y anillo de foco lima. Llega con Tab a{' '}
+          <a href="#inicio" className={styles.textLink}>
+            este enlace
+          </a>{' '}
+          para verlo.
+        </p>
+      </Section>
+
+      <Section id="contacto" titleId="contacto-title" accent="lime" showGrid={false}>
+        <SectionHeader
+          label="04 — Contacto"
+          titleId="contacto-title"
+          title={
+            <>
+              ¿Trabajamos <Highlight accent="pink">juntos</Highlight>?
+            </>
+          }
+        />
+        <div>
+          <Button href="mailto:hola@ejemplo.com" variant="inverted" size="lg">
+            hola@ejemplo.com ↗
+          </Button>
+        </div>
       </Section>
     </main>
   )
