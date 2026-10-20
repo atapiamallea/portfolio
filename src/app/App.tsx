@@ -1,4 +1,5 @@
-import { LOCALE_NAMES, useTranslation } from '@/shared/i18n'
+import { SECTION_IDS } from '@/shared/config/sections'
+import { useTranslation } from '@/shared/i18n'
 import {
   Button,
   ChipList,
@@ -15,47 +16,29 @@ function logButtonClick() {
   console.log('Button sin href: se renderiza como <button>')
 }
 
-// Escaparate temporal del sistema de diseño (Fases 1 y 2): cada componente en el sitio
-// donde se usará. Los textos de las secciones salen del diccionario; las notas de prueba
-// no se traducen. Se sustituye por las secciones reales a partir de la Fase 3.
+// Escaparate temporal del sistema de diseño: cada componente en el sitio donde se usará.
+// Los textos de las secciones salen del diccionario; las notas de prueba no se traducen.
+// AppLayout pone alrededor la navbar, <main> y el footer. Cada sección se sustituye
+// por la real a partir de la Fase 4.
 export function App() {
-  const { locale, dictionary, changeLocale } = useTranslation()
-  const { localeSwitcher, hero, about, projects, skills, contact } = dictionary
-  const isSpanishActive = locale === 'es'
-  const isEnglishActive = locale === 'en'
+  const { dictionary } = useTranslation()
+  const { hero, about, projects, skills, contact } = dictionary
+  const contactHref = `#${SECTION_IDS.contact}`
+  const projectsHref = `#${SECTION_IDS.projects}`
+  const heroHref = `#${SECTION_IDS.hero}`
 
   return (
-    <main>
-      <Section id="inicio" titleId="inicio-title" accent="paper">
+    <>
+      <Section id={SECTION_IDS.hero} titleId="inicio-title" accent="paper">
         <div className={styles.hero}>
-          {/* Selector temporal: el definitivo va en la navbar (Fase 3). */}
-          <div role="group" aria-label={localeSwitcher.groupLabel} className={styles.buttonRow}>
-            <Button
-              lang="es"
-              aria-pressed={isSpanishActive}
-              variant={isSpanishActive ? 'primary' : 'secondary'}
-              onClick={() => changeLocale('es')}
-            >
-              {LOCALE_NAMES.es}
-            </Button>
-            <Button
-              lang="en"
-              aria-pressed={isEnglishActive}
-              variant={isEnglishActive ? 'primary' : 'secondary'}
-              onClick={() => changeLocale('en')}
-            >
-              {LOCALE_NAMES.en}
-            </Button>
-          </div>
-
           <SectionLabel>{hero.availability}</SectionLabel>
           <h1 id="inicio-title" className={styles.heroTitle}>
             <HighlightedText text={hero.title} />
           </h1>
           <p className={styles.heroSubtitle}>{hero.subtitle}</p>
           <div className={styles.buttonRow}>
-            <Button href="#proyectos">{hero.primaryAction}</Button>
-            <Button href="#contacto" variant="secondary">
+            <Button href={projectsHref}>{hero.primaryAction}</Button>
+            <Button href={contactHref} variant="secondary">
               {hero.secondaryAction}
             </Button>
             <Button onClick={logButtonClick}>Soy un &lt;button&gt;</Button>
@@ -63,7 +46,7 @@ export function App() {
         </div>
       </Section>
 
-      <Section id="sobre-mi" titleId="sobre-mi-title" accent="violet">
+      <Section id={SECTION_IDS.about} titleId="sobre-mi-title" accent="violet">
         <GlassPanel padding="lg" className={styles.aboutPanel}>
           <SectionHeader
             label={about.label}
@@ -74,7 +57,7 @@ export function App() {
         </GlassPanel>
       </Section>
 
-      <Section id="proyectos" titleId="proyectos-title" accent="pink">
+      <Section id={SECTION_IDS.projects} titleId="proyectos-title" accent="pink">
         <SectionHeader
           label={projects.label}
           titleId="proyectos-title"
@@ -82,7 +65,7 @@ export function App() {
         />
         <div className={styles.projectGrid}>
           <GlassPanel element="article" className={styles.projectCard}>
-            <Tag accent="blue" className={styles.projectCardTag}>
+            <Tag accent="violet-deep" className={styles.projectCardTag}>
               {projects.teamTag}
             </Tag>
             <div className={styles.projectThumbnail} data-accent="lime">
@@ -108,7 +91,7 @@ export function App() {
         </div>
       </Section>
 
-      <Section id="skills" titleId="skills-title" accent="ink">
+      <Section id={SECTION_IDS.skills} titleId="skills-title" accent="ink">
         <SectionHeader
           label={skills.label}
           labelAccent="lime"
@@ -117,14 +100,14 @@ export function App() {
         />
         <p>
           Sección oscura: texto claro y anillo de foco lima. Llega con Tab a{' '}
-          <a href="#inicio" className={styles.textLink}>
+          <a href={heroHref} className={styles.textLink}>
             este enlace
           </a>{' '}
           para verlo.
         </p>
       </Section>
 
-      <Section id="contacto" titleId="contacto-title" accent="lime" showGrid={false}>
+      <Section id={SECTION_IDS.contact} titleId="contacto-title" accent="paper" showGrid={false}>
         <SectionHeader
           label={contact.label}
           titleId="contacto-title"
@@ -136,6 +119,6 @@ export function App() {
           </Button>
         </div>
       </Section>
-    </main>
+    </>
   )
 }

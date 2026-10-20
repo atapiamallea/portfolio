@@ -9,6 +9,12 @@
   color: var(--accent-text);
   background-color: var(--accent-background);
   border-top: var(--border);
+
+  // La primera sección queda pegada a la navbar, que ya tiene borde inferior:
+  // con los dos, la línea se vería el doble de gruesa.
+  &:first-child {
+    border-top: none;
+  }
 }
 
 .section[data-accent='violet'] {

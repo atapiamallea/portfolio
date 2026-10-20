@@ -4,10 +4,10 @@
 
 $palette: (
   'ink': #0d0d0d,
-  'paper': #f5f3ea,
+  'paper': #efece0,
   'lime': #c6f432,
   'violet': #8e7cf3,
-  // Violeta para TEXTO sobre fondos claros (6:1 sobre paper).
+  // Violeta para TEXTO sobre fondos claros (5.7:1 sobre paper).
   'violet-deep': #5b3fd6,
   'pink': #f59ae6,
   'orange': #ff6b1a,
@@ -24,6 +24,8 @@ $accents: (
   'orange': 'ink',
   // Blanco sobre azul solo da 3.7:1.
   'blue': 'ink',
+  // Violeta oscuro: el único fondo de color con texto blanco legible (6.7:1).
+  'violet-deep': 'white',
   'ink': 'lime',
   'paper': 'ink',
 );

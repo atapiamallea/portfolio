@@ -10,6 +10,20 @@ export const en: Dictionary = {
   localeSwitcher: {
     groupLabel: 'Language',
   },
+  navigation: {
+    label: 'Main',
+    menuButton: 'Menu',
+    skipLink: 'Skip to content',
+    links: {
+      about: 'About me',
+      projects: 'Projects',
+      skills: 'Skills',
+      contact: 'Contact',
+    },
+  },
+  footer: {
+    text: 'Made with React, coffee and a lot of CSS.',
+  },
   hero: {
     availability: 'Open to work',
     title: { start: "Hi, I'm ", highlight: 'X', end: '' },
