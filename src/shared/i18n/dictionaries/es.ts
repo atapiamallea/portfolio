@@ -10,6 +10,20 @@ export const es = {
   localeSwitcher: {
     groupLabel: 'Idioma',
   },
+  navigation: {
+    label: 'Principal',
+    menuButton: 'Menú',
+    skipLink: 'Saltar al contenido',
+    links: {
+      about: 'Sobre mí',
+      projects: 'Proyectos',
+      skills: 'Skills',
+      contact: 'Contacto',
+    },
+  },
+  footer: {
+    text: 'Hecho con React, café y mucho CSS.',
+  },
   hero: {
     availability: 'Disponible para trabajar',
     title: { start: 'Hola, soy ', highlight: 'X', end: '' },

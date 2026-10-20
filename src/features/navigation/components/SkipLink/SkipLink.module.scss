@@ -1,0 +1,23 @@
+@use '@/shared/styles/mixins' as *;
+
+// Fuera de la pantalla hasta que recibe el foco con Tab. No usa .visually-hidden
+// porque tiene que verse al enfocarlo.
+.skipLink {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  padding: 0.75rem 1.25rem;
+  font-weight: 700;
+  color: var(--color-ink);
+  background: var(--color-lime);
+  border-radius: var(--radius-pill);
+  transform: translateY(-200%);
+
+  @include brutal-border;
+  @include brutal-shadow;
+
+  &:focus {
+    transform: none;
+  }
+}

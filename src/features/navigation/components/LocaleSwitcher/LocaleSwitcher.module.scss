@@ -1,0 +1,32 @@
+@use '@/shared/styles/mixins' as *;
+
+// Sin overflow: hidden, para que no recorte el anillo de foco de los botones.
+// Misma altura que el resto de controles de la navbar (Contacto y ☰): 44px.
+// Los botones de dentro ocupan el alto que queda tras el borde y el relleno.
+.switcher {
+  display: flex;
+  gap: 0.2rem;
+  height: 2.75rem;
+  padding: 0.2rem;
+  border-radius: var(--radius-pill);
+
+  @include brutal-border;
+}
+
+.option {
+  min-width: 2.5rem;
+  height: 100%;
+  padding: 0 0.6rem;
+  font-weight: 700;
+  border-radius: var(--radius-pill);
+
+  &:hover {
+    background: rgb(13 13 13 / 8%);
+  }
+
+  // El idioma activo: tinta con texto lima (≥ 15:1).
+  &[aria-pressed='true'] {
+    color: var(--color-lime);
+    background: var(--color-ink);
+  }
+}

@@ -1,0 +1,155 @@
+@use '@/shared/styles/mixins' as *;
+
+// La altura coincide con --nav-height: scroll-padding-top la usa para que la barra
+// no tape el título de la sección al saltar a un ancla.
+.navbar {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 50;
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  min-height: var(--nav-height);
+  padding: 0.5rem var(--section-padding-x);
+  background: var(--color-paper);
+  border-bottom: var(--border);
+
+  @include respond-to('md') {
+    gap: 1.5rem;
+  }
+}
+
+// ---------- logo ----------
+.logo {
+  margin-right: auto;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+// Violeta oscuro: el violeta normal solo da 3:1 sobre paper.
+.logoSuffix {
+  color: var(--color-violet-deep);
+}
+
+// ---------- botón ☰ (solo móvil) ----------
+.menuButton {
+  display: grid;
+  place-items: center;
+  width: 2.75rem; // 44px: objetivo táctil cómodo
+  height: 2.75rem;
+  border-radius: var(--radius-sm);
+
+  @include brutal-border;
+
+  @include respond-to('md') {
+    display: none;
+  }
+}
+
+// Tres rayas: el span es la del medio y ::before / ::after las de arriba y abajo.
+.menuIcon,
+.menuIcon::before,
+.menuIcon::after {
+  display: block;
+  width: 1.25rem;
+  height: 3px;
+  background: currentColor;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.menuIcon {
+  position: relative;
+
+  &::before,
+  &::after {
+    position: absolute;
+    left: 0;
+    content: '';
+  }
+
+  &::before {
+    top: -7px;
+  }
+
+  &::after {
+    top: 7px;
+  }
+}
+
+// Abierto: la raya del medio desaparece y las otras dos forman una ✕.
+.menuButton[aria-expanded='true'] .menuIcon {
+  background: transparent;
+
+  &::before {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  &::after {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+}
+
+// ---------- lista de enlaces ----------
+// Móvil: oculta (display: none también la saca del orden de Tab) hasta que se abre,
+// y entonces cuelga debajo de la barra. Escritorio: siempre en línea.
+.links {
+  display: none;
+
+  &.open {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    display: grid;
+    gap: 0.5rem;
+    padding: 1rem var(--section-padding-x) 1.5rem;
+    font-size: 1.25rem;
+    background: var(--color-paper);
+    border-bottom: var(--border);
+  }
+
+  @include respond-to('md') {
+    &,
+    &.open {
+      position: static;
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      padding: 0;
+      font-size: 1rem;
+      border: none;
+    }
+  }
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  font-weight: 500;
+
+  &:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-decoration-color: var(--color-pink);
+    text-underline-offset: 4px;
+  }
+}
+
+// En el menú móvil, Contacto es un enlace más. En escritorio se destaca como píldora.
+.callToAction {
+  @include respond-to('md') {
+    padding: 0.5rem 1.1rem;
+    font-weight: 700;
+    color: var(--color-lime);
+    background: var(--color-ink);
+    border-radius: var(--radius-pill);
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
