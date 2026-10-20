@@ -13,7 +13,7 @@ Actúa como un programador experto en código limpio, legibilidad y mantenimient
 
 ## Reglas de estilo
 
-- **Nada de funciones anidadas ni closures complejos.** La lógica debe ser plana y fácil de seguir.
+- **Nada de funciones anidadas ni closures complejos.** La lógica debe ser plana y fácil de seguir. Excepción: los callbacks de React (efectos y manejadores de eventos) pueden ser una flecha de una línea que solo delega en una función con nombre.
 - **Usa variables intermedias descriptivas.** Divide las operaciones largas o complejas en pasos y dale a cada variable un nombre que explique para qué sirve ese paso.
 - **Modularidad básica.** Las funciones deben ser independientes y secuenciales, y tener una sola responsabilidad (Single Responsibility Principle).
 - **Claridad antes que concisión.** Es preferible un código más largo pero bien estructurado y legible a uno compacto, "ingenioso" o críptico.
