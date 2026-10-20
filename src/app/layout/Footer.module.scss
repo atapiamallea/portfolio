@@ -1,0 +1,9 @@
+@use '@/shared/styles/mixins' as *;
+
+.footer {
+  padding: 1.25rem var(--section-padding-x);
+  font-size: 0.9rem;
+  text-align: center;
+
+  @include dark-surface;
+}

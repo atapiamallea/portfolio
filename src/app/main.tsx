@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { LocaleProvider } from '@/shared/i18n'
 import '@/shared/styles/global.scss'
 import { App } from './App'
+import { AppLayout } from './layout/AppLayout'
 
 const rootElement = document.getElementById('root')
 if (rootElement === null) {
@@ -12,7 +13,9 @@ if (rootElement === null) {
 createRoot(rootElement).render(
   <StrictMode>
     <LocaleProvider>
-      <App />
+      <AppLayout>
+        <App />
+      </AppLayout>
     </LocaleProvider>
   </StrictMode>,
 )
