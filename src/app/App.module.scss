@@ -14,6 +14,11 @@
   font-size: clamp(3rem, 12vw, 9rem);
 }
 
+.heroSubtitle {
+  max-width: 32rem;
+  font-size: clamp(1.05rem, 2vw, 1.4rem);
+}
+
 .buttonRow {
   display: flex;
   flex-wrap: wrap;
