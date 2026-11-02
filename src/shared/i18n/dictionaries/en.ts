@@ -24,6 +24,10 @@ export const en: Dictionary = {
   footer: {
     text: 'Made with React, coffee and a lot of CSS.',
   },
+  marquee: {
+    label: 'Technologies',
+    pause: 'Pause the ticker',
+  },
   hero: {
     availability: 'Open to work',
     title: { start: "Hi, I'm ", highlight: 'X', end: '' },
