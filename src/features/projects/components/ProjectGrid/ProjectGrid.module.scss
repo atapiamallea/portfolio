@@ -1,0 +1,10 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 2rem;
+}
+
+// Grid para que la tarjeta ocupe todo el alto de la fila: todas miden lo mismo.
+.item {
+  display: grid;
+}

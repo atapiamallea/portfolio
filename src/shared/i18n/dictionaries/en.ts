@@ -3,9 +3,9 @@ import type { Dictionary } from './es'
 // Tipado con `Dictionary`: si falta o sobra una clave respecto a es.ts, no compila.
 export const en: Dictionary = {
   meta: {
-    title: 'X — Full Stack Developer',
+    title: 'Andrea — Full Stack Developer',
     description:
-      'Portfolio of X, Full Stack developer: projects built with React, Node.js, Express, MongoDB and SQL.',
+      'Portfolio of Andrea, Full Stack developer: projects built with React, Node.js, Express, MongoDB and SQL.',
   },
   localeSwitcher: {
     groupLabel: 'Language',
@@ -30,7 +30,7 @@ export const en: Dictionary = {
   },
   hero: {
     availability: 'Open to work',
-    title: { start: "Hi, I'm ", highlight: 'X', end: '' },
+    title: { start: "Hi, I'm ", highlight: 'Andrea', end: '' },
     subtitle:
       'Recently graduated Full Stack developer. I build interfaces with personality and APIs that work.',
     primaryAction: 'See projects ↓',
@@ -52,11 +52,17 @@ export const en: Dictionary = {
   projects: {
     label: '02 — Projects',
     title: { start: 'Selected ', highlight: 'work', end: '' },
-    teamTag: 'Team',
-    soloTag: 'Solo',
+    teamTypeTags: {
+      team: 'Team',
+      solo: 'Solo',
+    },
     technologiesLabel: 'Technologies used',
-    demoLink: 'Demo ↗',
-    codeLink: 'Code ↗',
+    demoLink: 'Demo',
+    repositoryLinks: {
+      frontend: 'Frontend code',
+      backend: 'Backend code',
+    },
+    newTabNotice: 'opens in a new tab',
   },
   skills: {
     label: '03 — Skills',

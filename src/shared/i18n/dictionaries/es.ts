@@ -3,9 +3,9 @@
 // que pinta el componente HighlightedText, así el JSX no contiene texto.
 export const es = {
   meta: {
-    title: 'X — Full Stack Developer',
+    title: 'Andrea — Full Stack Developer',
     description:
-      'Portfolio de X, desarrolladora Full Stack: proyectos con React, Node.js, Express, MongoDB y SQL.',
+      'Portfolio de Andrea, desarrolladora Full Stack: proyectos con React, Node.js, Express, MongoDB y SQL.',
   },
   localeSwitcher: {
     groupLabel: 'Idioma',
@@ -30,7 +30,7 @@ export const es = {
   },
   hero: {
     availability: 'Disponible para trabajar',
-    title: { start: 'Hola, soy ', highlight: 'X', end: '' },
+    title: { start: 'Hola, soy ', highlight: 'Andrea', end: '' },
     subtitle:
       'Desarrolladora Full Stack recién graduada. Construyo interfaces con personalidad y APIs que funcionan.',
     primaryAction: 'Ver proyectos ↓',
@@ -52,11 +52,18 @@ export const es = {
   projects: {
     label: '02 — Proyectos',
     title: { start: 'Trabajos ', highlight: 'seleccionados', end: '' },
-    teamTag: 'Grupal',
-    soloTag: 'Individual',
+    // Las claves coinciden con ProjectTeamType y RepositoryKind de features/projects.
+    teamTypeTags: {
+      team: 'Grupal',
+      solo: 'Individual',
+    },
     technologiesLabel: 'Tecnologías usadas',
-    demoLink: 'Demo ↗',
-    codeLink: 'Código ↗',
+    demoLink: 'Demo',
+    repositoryLinks: {
+      frontend: 'Código frontend',
+      backend: 'Código backend',
+    },
+    newTabNotice: 'se abre en una pestaña nueva',
   },
   skills: {
     label: '03 — Skills',
