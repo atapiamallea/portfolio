@@ -28,11 +28,18 @@
   font-size: clamp(4rem, 14vw, 11rem);
 }
 
-// Decoración: el reset la detiene con prefers-reduced-motion.
+// Decoración. Solo gira con el ratón sobre el hero: un movimiento que no para y que no
+// inicia la persona necesitaría un botón de pausa (WCAG 2.2.2). El reset la detiene
+// también con prefers-reduced-motion.
 .star {
   display: inline-block;
   margin-left: 0.1em;
   color: var(--color-orange);
+}
+
+// Se escucha en la sección y no en el título: el contenido tiene pointer-events: none
+// para que el cursor llegue a la red, así que el título nunca recibe :hover.
+.hero:hover .star {
   animation: spin 8s linear infinite;
 }
 
