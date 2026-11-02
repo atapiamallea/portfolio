@@ -3,7 +3,7 @@ import styles from './ChipList.module.scss'
 
 interface ChipListProps {
   /** Textos de las píldoras. Deben ser únicos: se usan como `key`. */
-  items: string[]
+  items: readonly string[]
   /** Nombre accesible de la lista, p. ej. "Tecnologías usadas". */
   label: string
   className?: string

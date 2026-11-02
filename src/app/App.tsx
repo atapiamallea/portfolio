@@ -1,24 +1,17 @@
 import { Hero } from '@/features/hero'
+import { ProjectsSection } from '@/features/projects'
 import { TechMarquee } from '@/features/skills'
 import { SECTION_IDS } from '@/shared/config/sections'
 import { useTranslation } from '@/shared/i18n'
-import {
-  Button,
-  ChipList,
-  GlassPanel,
-  HighlightedText,
-  Section,
-  SectionHeader,
-  Tag,
-} from '@/shared/ui'
+import { Button, GlassPanel, HighlightedText, Section, SectionHeader } from '@/shared/ui'
 import styles from './App.module.scss'
 
-// Página principal. El Hero ya es la sección real (Fase 4); el resto sigue siendo el
-// escaparate temporal del sistema de diseño y se sustituye sección a sección en las
-// Fases 6 a 9. AppLayout pone alrededor la navbar, <main> y el footer.
+// Página principal. Hero, cinta y Proyectos ya son las secciones reales (Fases 4, 5 y 7);
+// el resto sigue siendo el escaparate temporal del sistema de diseño y se sustituye en
+// las Fases 6, 8 y 9. AppLayout pone alrededor la navbar, <main> y el footer.
 export function App() {
   const { dictionary } = useTranslation()
-  const { about, projects, skills, contact } = dictionary
+  const { about, skills, contact } = dictionary
   const heroHref = `#${SECTION_IDS.hero}`
 
   return (
@@ -37,39 +30,7 @@ export function App() {
         </GlassPanel>
       </Section>
 
-      <Section id={SECTION_IDS.projects} titleId="proyectos-title" accent="pink">
-        <SectionHeader
-          label={projects.label}
-          titleId="proyectos-title"
-          title={<HighlightedText text={projects.title} />}
-        />
-        <div className={styles.projectGrid}>
-          <GlassPanel element="article" className={styles.projectCard}>
-            <Tag accent="violet-deep" className={styles.projectCardTag}>
-              {projects.teamTag}
-            </Tag>
-            <div className={styles.projectThumbnail} data-accent="lime">
-              01
-            </div>
-            <h3>Proyecto Uno</h3>
-            <p>Descripción corta del proyecto.</p>
-            <ChipList label={projects.technologiesLabel} items={['React', 'Node', 'MongoDB']} />
-          </GlassPanel>
-
-          <GlassPanel element="article" className={styles.projectCard}>
-            <Tag className={styles.projectCardTag}>{projects.soloTag}</Tag>
-            <div className={styles.projectThumbnail} data-accent="ink">
-              02
-            </div>
-            <h3>Proyecto Final</h3>
-            <p>Proyecto individual de principio a fin.</p>
-            <ChipList
-              label={projects.technologiesLabel}
-              items={['React', 'Node', 'MongoDB', 'Deploy']}
-            />
-          </GlassPanel>
-        </div>
-      </Section>
+      <ProjectsSection />
 
       <Section id={SECTION_IDS.skills} titleId="skills-title" accent="ink">
         <SectionHeader
