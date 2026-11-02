@@ -1,4 +1,5 @@
 import { Hero } from '@/features/hero'
+import { TechMarquee } from '@/features/skills'
 import { SECTION_IDS } from '@/shared/config/sections'
 import { useTranslation } from '@/shared/i18n'
 import {
@@ -23,6 +24,7 @@ export function App() {
   return (
     <>
       <Hero />
+      <TechMarquee />
 
       <Section id={SECTION_IDS.about} titleId="sobre-mi-title" accent="violet">
         <GlassPanel padding="lg" className={styles.aboutPanel}>

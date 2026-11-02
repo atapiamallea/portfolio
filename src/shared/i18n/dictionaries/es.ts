@@ -24,6 +24,10 @@ export const es = {
   footer: {
     text: 'Hecho con React, café y mucho CSS.',
   },
+  marquee: {
+    label: 'Tecnologías',
+    pause: 'Pausar la cinta',
+  },
   hero: {
     availability: 'Disponible para trabajar',
     title: { start: 'Hola, soy ', highlight: 'X', end: '' },
