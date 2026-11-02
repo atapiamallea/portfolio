@@ -1,3 +1,4 @@
+import { Hero } from '@/features/hero'
 import { SECTION_IDS } from '@/shared/config/sections'
 import { useTranslation } from '@/shared/i18n'
 import {
@@ -7,44 +8,21 @@ import {
   HighlightedText,
   Section,
   SectionHeader,
-  SectionLabel,
   Tag,
 } from '@/shared/ui'
 import styles from './App.module.scss'
 
-function logButtonClick() {
-  console.log('Button sin href: se renderiza como <button>')
-}
-
-// Escaparate temporal del sistema de diseño: cada componente en el sitio donde se usará.
-// Los textos de las secciones salen del diccionario; las notas de prueba no se traducen.
-// AppLayout pone alrededor la navbar, <main> y el footer. Cada sección se sustituye
-// por la real a partir de la Fase 4.
+// Página principal. El Hero ya es la sección real (Fase 4); el resto sigue siendo el
+// escaparate temporal del sistema de diseño y se sustituye sección a sección en las
+// Fases 6 a 9. AppLayout pone alrededor la navbar, <main> y el footer.
 export function App() {
   const { dictionary } = useTranslation()
-  const { hero, about, projects, skills, contact } = dictionary
-  const contactHref = `#${SECTION_IDS.contact}`
-  const projectsHref = `#${SECTION_IDS.projects}`
+  const { about, projects, skills, contact } = dictionary
   const heroHref = `#${SECTION_IDS.hero}`
 
   return (
     <>
-      <Section id={SECTION_IDS.hero} titleId="inicio-title" accent="paper">
-        <div className={styles.hero}>
-          <SectionLabel>{hero.availability}</SectionLabel>
-          <h1 id="inicio-title" className={styles.heroTitle}>
-            <HighlightedText text={hero.title} />
-          </h1>
-          <p className={styles.heroSubtitle}>{hero.subtitle}</p>
-          <div className={styles.buttonRow}>
-            <Button href={projectsHref}>{hero.primaryAction}</Button>
-            <Button href={contactHref} variant="secondary">
-              {hero.secondaryAction}
-            </Button>
-            <Button onClick={logButtonClick}>Soy un &lt;button&gt;</Button>
-          </div>
-        </div>
-      </Section>
+      <Hero />
 
       <Section id={SECTION_IDS.about} titleId="sobre-mi-title" accent="violet">
         <GlassPanel padding="lg" className={styles.aboutPanel}>

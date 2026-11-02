@@ -2,29 +2,6 @@
 
 @use '@/shared/styles/mixins' as *;
 
-// ---------- inicio ----------
-.hero {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  align-items: flex-start;
-}
-
-.heroTitle {
-  font-size: clamp(3rem, 12vw, 9rem);
-}
-
-.heroSubtitle {
-  max-width: 32rem;
-  font-size: clamp(1.05rem, 2vw, 1.4rem);
-}
-
-.buttonRow {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
 // ---------- sobre mí ----------
 .aboutPanel {
   display: grid;
