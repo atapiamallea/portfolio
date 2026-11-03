@@ -1,3 +1,5 @@
+@use '@/shared/styles/mixins' as *;
+
 // La sección es la referencia del canvas (position: relative) y lo recorta (overflow: hidden).
 // Con grid + align-content el contenido queda centrado en vertical y sigue ocupando el ancho.
 .hero {
@@ -62,9 +64,18 @@
   }
 }
 
+// Caja sólida como el resaltado del nombre, con su misma inclinación: la cuadrícula de detrás no deja leer el texto.
+// Es un objeto de color, así que papel con texto tinta en los dos temas (16.7:1).
 .subtitle {
-  max-width: 32rem;
+  max-width: 34rem;
+  padding: 0.6em 0.9em;
   font-size: clamp(1.05rem, 2vw, 1.4rem);
+  color: var(--color-ink);
+  background: var(--color-paper);
+  border-radius: var(--radius-sm);
+  transform: rotate(-2deg);
+
+  @include brutal-border;
 }
 
 .actions {
