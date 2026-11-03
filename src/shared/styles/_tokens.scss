@@ -9,9 +9,8 @@ $palette: (
   'ink-raised': #1f1f20,
   'paper': #faf0e8,
   'green': #82d25d,
-  'violet': #ac5cd1,
-  // Violeta para TEXTO sobre fondos claros (9.9:1 sobre paper).
-  'violet-deep': #4f1c8d,
+  // El violeta oscuro de hipuku (quasar-dark): se separa mejor del verde que el claro.
+  'violet': #9b72e6,
   'pink': #f28bad,
   'orange': #f78d2c,
   'blue': #7193ed,
@@ -22,13 +21,12 @@ $palette: (
 // Debe coincidir con el tipo `Accent` de tokens.ts.
 $accents: (
   'green': 'ink',
+  // Tinta sobre violeta da 5.3:1.
   'violet': 'ink',
   'pink': 'ink',
   'orange': 'ink',
   // Blanco sobre azul no llega a 4.5:1; tinta da 6.3:1.
   'blue': 'ink',
-  // Violeta oscuro: el único fondo de color con texto blanco legible (11.2:1).
-  'violet-deep': 'white',
   'ink': 'green',
   'paper': 'ink',
 );
