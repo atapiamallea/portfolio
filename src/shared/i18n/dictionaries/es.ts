@@ -55,18 +55,24 @@ export const es = {
       'Desarrolladora Full Stack con Java y React. Vengo del mundo del marketing digital y esa experiencia me ayuda a pensar más allá del código: qué necesita el cliente, qué tiene sentido para el negocio y cómo construirlo de forma simple y escalable.',
       'En proyectos reales he trabajado con Scrum en equipo y también he sacado adelante uno individual de principio a fin: diseño, frontend, backend y tests.',
     ],
-    // Las claves total / team / solo coinciden con ProjectSummary de features/projects.
-    stats: {
-      label: 'Proyectos en números',
-      total: { one: 'proyecto', other: 'proyectos' },
-      team: { one: 'en equipo', other: 'en equipo' },
-      solo: { one: 'individual', other: 'individuales' },
-    },
     badge: {
       role: 'Full Stack Developer',
       flipButton: 'Dar la vuelta a la credencial',
       socialLabel: 'Redes',
-      stackLabel: 'Stack principal',
+    },
+    // Reverso de la credencial: lo personal, fuera del código.
+    personal: {
+      title: 'Fuera del código',
+      // "Desde 2021" y no "hace 5 años": así el texto no caduca.
+      origin: 'De La Paz, Bolivia. En Barcelona desde 2021.',
+      factsLabel: 'Datos curiosos',
+      facts: [
+        // Explica el título de la sección, "De la claqueta al commit".
+        'De la claqueta al commit: 4 años en un canal de televisión, luego marketing digital y ahora desarrollo.',
+        'Mi hobby: el maquillaje artístico y de efectos especiales.',
+        'Diseño y hago mis propios pendientes.',
+        'Me encanta todo lo creativo, dentro y fuera de la pantalla.',
+      ],
     },
   },
   projects: {

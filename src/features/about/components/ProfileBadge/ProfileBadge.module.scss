@@ -222,17 +222,18 @@
 
 // ---------- cara trasera ----------
 // Borde discontinuo interior, como el reverso de una acreditación.
-// space-between: el rol arriba, el stack abajo y las estadísticas en medio.
+// Fondo verde liso: las rayas de la tarjeta, detrás del texto, dificultaban la lectura.
 .backContent {
   display: grid;
   gap: 1.25rem;
-  align-content: space-between;
+  align-content: start;
   padding: 1.25rem 1rem;
+  background: var(--color-green);
   border: 2px dashed var(--color-ink);
   border-radius: var(--radius-md);
 }
 
-.backRole {
+.backTitle {
   font-family: var(--font-display);
   font-size: 1.35rem;
   font-weight: 900;
@@ -240,20 +241,43 @@
   text-transform: uppercase;
 }
 
-.stack {
+.origin {
+  font-weight: 700;
+}
+
+.facts {
   display: grid;
-  gap: 0.25rem;
+  gap: 0.6rem;
   padding-top: 1rem;
   border-top: 2px dashed var(--color-ink);
 }
 
-.stackLabel {
+.factsLabel {
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
-.stackList {
-  font-weight: 700;
+.factList {
+  display: grid;
+  gap: 0.5rem;
+}
+
+// Viñeta dibujada con CSS: un cuadrado violeta girado, como un rombo.
+.fact {
+  position: relative;
+  padding-left: 1.1rem;
+
+  &::before {
+    position: absolute;
+    top: 0.5em;
+    left: 0;
+    width: 0.45rem;
+    height: 0.45rem;
+    content: '';
+    background: var(--color-violet);
+    border: 1.5px solid var(--color-ink);
+    transform: rotate(45deg);
+  }
 }

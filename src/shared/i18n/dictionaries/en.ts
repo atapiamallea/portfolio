@@ -53,17 +53,21 @@ export const en: Dictionary = {
       'Full Stack developer working with Java and React. I come from digital marketing, and that experience helps me think beyond the code: what the client needs, what makes sense for the business and how to build it in a simple, scalable way.',
       "On real projects I've worked in a Scrum team, and I've also taken a solo one from start to finish: design, frontend, backend and tests.",
     ],
-    stats: {
-      label: 'Projects in numbers',
-      total: { one: 'project', other: 'projects' },
-      team: { one: 'team project', other: 'team projects' },
-      solo: { one: 'solo project', other: 'solo projects' },
-    },
     badge: {
       role: 'Full Stack Developer',
       flipButton: 'Flip the badge',
       socialLabel: 'Social links',
-      stackLabel: 'Main stack',
+    },
+    personal: {
+      title: 'Off the clock',
+      origin: 'From La Paz, Bolivia. Living in Barcelona since 2021.',
+      factsLabel: 'Fun facts',
+      facts: [
+        'From clapperboard to commit: 4 years at a TV channel, then digital marketing, and now development.',
+        'My hobby: artistic and special effects makeup.',
+        'I design and make my own earrings.',
+        'I love anything creative, on and off the screen.',
+      ],
     },
   },
   projects: {

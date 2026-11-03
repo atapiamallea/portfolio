@@ -11,5 +11,4 @@ export const PROFILE: Profile = {
       en: 'Smiling, with long brown hair and a black La Paz, Bolivia T-shirt, in front of a bookshelf',
     },
   },
-  featuredTechnologies: ['React', 'Java', 'Spring Boot', 'PostgreSQL'],
 }
