@@ -7,4 +7,5 @@ export { HighlightedText, type HighlightedTextParts } from './HighlightedText/Hi
 export { Section } from './Section/Section'
 export { SectionHeader } from './SectionHeader/SectionHeader'
 export { SectionLabel } from './SectionLabel/SectionLabel'
+export { SocialIcon } from './SocialIcon/SocialIcon'
 export { Tag } from './Tag/Tag'

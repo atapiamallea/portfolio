@@ -7,6 +7,9 @@ export const en: Dictionary = {
     description:
       'Portfolio of Andrea, Full Stack developer: projects built with React, Node.js, Express, MongoDB and SQL.',
   },
+  common: {
+    newTabNotice: 'opens in a new tab',
+  },
   localeSwitcher: {
     groupLabel: 'Language',
   },
@@ -38,15 +41,28 @@ export const en: Dictionary = {
   },
   about: {
     label: '01 — About me',
-    title: { start: 'From zero to ', highlight: 'full stack', end: ' in a bootcamp.' },
+    title: { start: 'From clapperboard ', highlight: 'to commit', end: '.' },
     paragraphs: [
-      'I recently graduated from an intensive full stack development bootcamp. I worked on team projects using agile methodologies and took a solo project from start to finish: design, frontend, backend and deployment.',
-      'I like what I build to look good and work well.',
+      'I come from audiovisual production and digital strategy, where I learned to handle the unexpected at a fast pace and to connect products with people.',
+      'Today I build full stack applications with React, Java and Spring Boot: modular, accessible interfaces, secure REST APIs and clean code designed to grow.',
+      'I have worked in teams with Scrum on group projects and taken a solo one from start to finish: design, frontend, backend and tests.',
     ],
     stats: {
-      projects: 'projects',
-      team: 'team',
-      solo: 'solo',
+      label: 'Projects in numbers',
+      total: { one: 'project', other: 'projects' },
+      team: { one: 'team project', other: 'team projects' },
+      solo: { one: 'solo project', other: 'solo projects' },
+    },
+    badge: {
+      role: 'Full Stack Developer',
+      flipButton: 'Flip the badge',
+      socialLabel: 'Social links',
+      stackLabel: 'Main stack',
+      networkNames: {
+        github: 'GitHub',
+        linkedin: 'LinkedIn',
+        email: 'Email',
+      },
     },
   },
   projects: {
@@ -62,7 +78,6 @@ export const en: Dictionary = {
       frontend: 'Frontend code',
       backend: 'Backend code',
     },
-    newTabNotice: 'opens in a new tab',
   },
   skills: {
     label: '03 — Skills',

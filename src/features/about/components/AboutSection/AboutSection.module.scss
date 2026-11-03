@@ -1,0 +1,27 @@
+@use '@/shared/styles/mixins' as *;
+
+// Móvil: texto y credencial uno debajo de otro. Escritorio: lado a lado.
+.layout {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+
+  @include respond-to('md') {
+    grid-template-columns: 1.6fr 1fr;
+  }
+}
+
+.panel {
+  display: grid;
+  gap: 1rem;
+}
+
+// Dentro de la tarjeta el título es más pequeño que en el resto de secciones.
+.header h2 {
+  font-size: clamp(2rem, 5vw, 3.6rem);
+}
+
+.paragraph {
+  max-width: 60ch;
+  font-size: 1.1rem;
+}

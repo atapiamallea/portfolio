@@ -7,6 +7,10 @@ export const es = {
     description:
       'Portfolio de Andrea, desarrolladora Full Stack: proyectos con React, Node.js, Express, MongoDB y SQL.',
   },
+  // Textos que usan varias secciones.
+  common: {
+    newTabNotice: 'se abre en una pestaña nueva',
+  },
   localeSwitcher: {
     groupLabel: 'Idioma',
   },
@@ -38,15 +42,30 @@ export const es = {
   },
   about: {
     label: '01 — Sobre mí',
-    title: { start: 'De cero a ', highlight: 'full stack', end: ' en un bootcamp.' },
+    title: { start: 'De la claqueta ', highlight: 'al commit', end: '.' },
     paragraphs: [
-      'Me gradué hace poco de un bootcamp intensivo de desarrollo full stack. Trabajé en equipo en proyectos grupales con metodologías ágiles y llevé un proyecto individual de principio a fin: diseño, frontend, backend y despliegue.',
-      'Me gusta que lo que construyo se vea bien y funcione bien.',
+      'Vengo de la producción audiovisual y la estrategia digital, donde aprendí a resolver imprevistos a buen ritmo y a conectar productos con personas.',
+      'Hoy construyo aplicaciones full stack con React, Java y Spring Boot: interfaces modulares y accesibles, APIs REST seguras y código limpio pensado para crecer.',
+      'He trabajado en equipo con Scrum en proyectos grupales y he llevado uno individual de principio a fin: diseño, frontend, backend y tests.',
     ],
+    // Las claves total / team / solo coinciden con ProjectSummary de features/projects.
     stats: {
-      projects: 'proyectos',
-      team: 'en equipo',
-      solo: 'individual',
+      label: 'Proyectos en números',
+      total: { one: 'proyecto', other: 'proyectos' },
+      team: { one: 'en equipo', other: 'en equipo' },
+      solo: { one: 'individual', other: 'individuales' },
+    },
+    badge: {
+      role: 'Full Stack Developer',
+      flipButton: 'Dar la vuelta a la credencial',
+      socialLabel: 'Redes',
+      stackLabel: 'Stack principal',
+      // Las claves coinciden con SocialNetwork de shared/config/site.ts.
+      networkNames: {
+        github: 'GitHub',
+        linkedin: 'LinkedIn',
+        email: 'Correo',
+      },
     },
   },
   projects: {
@@ -63,7 +82,6 @@ export const es = {
       frontend: 'Código frontend',
       backend: 'Código backend',
     },
-    newTabNotice: 'se abre en una pestaña nueva',
   },
   skills: {
     label: '03 — Skills',
