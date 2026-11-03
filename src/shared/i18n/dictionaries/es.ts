@@ -42,7 +42,6 @@ export const es = {
     pause: 'Pausar la cinta',
   },
   hero: {
-    availability: 'Disponible para trabajar',
     title: { start: 'Hola, soy ', highlight: 'Andrea', end: '' },
     subtitle:
       'Desarrolladora Full Stack con React y Java. Construyo interfaces con personalidad y APIs que funcionan.',

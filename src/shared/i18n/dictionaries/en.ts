@@ -40,7 +40,6 @@ export const en: Dictionary = {
     pause: 'Pause the ticker',
   },
   hero: {
-    availability: 'Open to work',
     title: { start: "Hi, I'm ", highlight: 'Andrea', end: '' },
     subtitle:
       'Full Stack developer working with React and Java. I build interfaces with personality and APIs that work.',
