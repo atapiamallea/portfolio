@@ -29,7 +29,7 @@ $overflow-per-side: calc(($tilt-scale - 1) / 2 * 100%);
 .track {
   display: flex;
   width: max-content;
-  animation: marquee 35s linear infinite;
+  animation: marquee var(--marquee-duration, 35s) linear infinite;
 }
 
 @keyframes marquee {

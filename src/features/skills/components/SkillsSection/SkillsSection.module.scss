@@ -1,0 +1,21 @@
+@use '@/shared/styles/mixins' as *;
+
+// Columnas fijas por tamaño para que las 8 tarjetas formen filas completas:
+// 1 en móvil, 2 en tablet y 4 en escritorio (dos filas de 4).
+.grid {
+  display: grid;
+  gap: 1.5rem;
+
+  @include respond-to('sm') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to('lg') {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+// Grid para que la tarjeta ocupe todo el alto de la fila: todas miden lo mismo.
+.item {
+  display: grid;
+}
