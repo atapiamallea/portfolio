@@ -5,7 +5,7 @@ export const es = {
   meta: {
     title: 'Andrea — Full Stack Developer',
     description:
-      'Portfolio de Andrea, desarrolladora Full Stack: proyectos con React, Node.js, Express, MongoDB y SQL.',
+      'Portfolio de Andrea, desarrolladora Full Stack: aplicaciones con React, Java, Spring Boot y PostgreSQL.',
   },
   // Textos que usan varias secciones.
   common: {
@@ -86,6 +86,17 @@ export const es = {
   skills: {
     label: '03 — Skills',
     title: { start: 'Lo que ', highlight: 'sé hacer', end: '' },
+    // Las claves son los SkillCategoryId: si falta una categoría, SkillCard no compila.
+    categories: {
+      frontend: 'Frontend',
+      backend: 'Backend',
+      databases: 'Bases de datos',
+      testing: 'Testing',
+      tools: 'Herramientas',
+      methodologies: 'Metodologías',
+      marketing: 'Marketing digital',
+      learning: 'Siempre aprendiendo',
+    },
   },
   contact: {
     label: '04 — Contacto',

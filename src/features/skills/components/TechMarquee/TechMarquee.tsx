@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, type CSSProperties } from 'react'
 import { useTranslation } from '@/shared/i18n'
 import { SKILL_CATEGORIES } from '../../data/skills'
 import { selectMarqueeTechnologies } from '../../model/skillSelectors'
@@ -6,6 +6,13 @@ import styles from './TechMarquee.module.scss'
 
 // Se calcula una vez al cargar el módulo: los datos no cambian mientras la página está abierta.
 const MARQUEE_TECHNOLOGIES = selectMarqueeTechnologies(SKILL_CATEGORIES)
+
+// La duración crece con el número de tecnologías: así la velocidad es la misma
+// aunque la lista se alargue. React no conoce las variables CSS (`--algo`) en `style`,
+// por eso hace falta `as CSSProperties`.
+const SECONDS_PER_TECHNOLOGY = 2.5
+const marqueeDuration = MARQUEE_TECHNOLOGIES.length * SECONDS_PER_TECHNOLOGY
+const TRACK_STYLE = { '--marquee-duration': `${marqueeDuration}s` } as CSSProperties
 
 // ︎ pide la versión de texto del símbolo, para que iOS no lo pinte como emoji.
 const PLAY_ICON = '▶︎'
@@ -40,7 +47,7 @@ export function TechMarquee() {
   return (
     <div className={styles.marquee} data-paused={isPaused}>
       <div className={styles.viewport}>
-        <div className={styles.track}>
+        <div className={styles.track} style={TRACK_STYLE}>
           <ul aria-label={dictionary.marquee.label} className={styles.list}>
             {technologyItems}
           </ul>

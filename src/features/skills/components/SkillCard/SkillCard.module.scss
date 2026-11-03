@@ -1,0 +1,57 @@
+@use '@/shared/styles/mixins' as *;
+
+// La sección es oscura: borde y sombra en paper para que la tarjeta se despegue del fondo.
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  height: 100%;
+  padding: 1.75rem;
+  color: var(--accent-text);
+  background: var(--accent-background);
+  border-radius: var(--radius-lg);
+  transition: transform 0.25s cubic-bezier(0.3, 1.8, 0.5, 1);
+
+  @include brutal-border(var(--color-paper));
+  @include brutal-shadow(var(--color-paper));
+
+  // Rebota un poco al pasar el ratón. Con movimiento reducido, el reset anula la transición.
+  &:hover {
+    transform: scale(1.04) rotate(-1.5deg);
+  }
+}
+
+// Lo que está aprendiendo: borde discontinuo, como algo que aún está en construcción.
+.card[data-kind='learning'] {
+  border-style: dashed;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 900;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.6rem;
+  font-weight: 600;
+}
+
+// Punto separador dibujado con CSS (sin texto): el lector de pantalla no lo lee.
+.skill {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+
+  &:not(:last-child)::after {
+    width: 0.3em;
+    height: 0.3em;
+    content: '';
+    background: currentcolor;
+    border-radius: 50%;
+  }
+}

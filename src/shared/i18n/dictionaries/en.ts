@@ -5,7 +5,7 @@ export const en: Dictionary = {
   meta: {
     title: 'Andrea — Full Stack Developer',
     description:
-      'Portfolio of Andrea, Full Stack developer: projects built with React, Node.js, Express, MongoDB and SQL.',
+      'Portfolio of Andrea, Full Stack developer: applications built with React, Java, Spring Boot and PostgreSQL.',
   },
   common: {
     newTabNotice: 'opens in a new tab',
@@ -82,6 +82,16 @@ export const en: Dictionary = {
   skills: {
     label: '03 — Skills',
     title: { start: 'What ', highlight: 'I can do', end: '' },
+    categories: {
+      frontend: 'Frontend',
+      backend: 'Backend',
+      databases: 'Databases',
+      testing: 'Testing',
+      tools: 'Tools',
+      methodologies: 'Methodologies',
+      marketing: 'Digital marketing',
+      learning: 'Always learning',
+    },
   },
   contact: {
     label: '04 — Contact',
