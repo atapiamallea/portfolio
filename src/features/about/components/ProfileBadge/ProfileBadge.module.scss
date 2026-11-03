@@ -11,7 +11,7 @@
   display: grid;
   grid-template-rows: auto 1fr; // cinta y tarjeta: la tarjeta ocupa el alto que sobre
   justify-items: center;
-  width: min(100%, 16rem);
+  width: min(100%, 20rem);
   margin-inline: auto;
 
   // La credencial es un objeto de color: su texto es tinta en los dos temas.

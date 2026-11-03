@@ -10,7 +10,7 @@
   align-items: center;
 
   @include respond-to('md') {
-    grid-template-columns: 1.6fr 1fr;
+    grid-template-columns: 1.5fr 1fr;
     align-items: stretch;
   }
 }

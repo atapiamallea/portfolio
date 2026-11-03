@@ -52,9 +52,8 @@ export const es = {
     label: '01 — Sobre mí',
     title: { start: 'De la claqueta ', highlight: 'al commit', end: '.' },
     paragraphs: [
-      'Vengo de la producción audiovisual y la estrategia digital, donde aprendí a resolver imprevistos a buen ritmo y a conectar productos con personas.',
-      'Hoy construyo aplicaciones full stack con React, Java y Spring Boot: interfaces modulares y accesibles, APIs REST seguras y código limpio pensado para crecer.',
-      'He trabajado en equipo con Scrum en proyectos grupales y he llevado uno individual de principio a fin: diseño, frontend, backend y tests.',
+      'Desarrolladora Full Stack con Java y React. Vengo del mundo del marketing digital y esa experiencia me ayuda a pensar más allá del código: qué necesita el cliente, qué tiene sentido para el negocio y cómo construirlo de forma simple y escalable.',
+      'En proyectos reales he trabajado con Scrum en equipo y también he sacado adelante uno individual de principio a fin: diseño, frontend, backend y tests.',
     ],
     // Las claves total / team / solo coinciden con ProjectSummary de features/projects.
     stats: {

@@ -50,9 +50,8 @@ export const en: Dictionary = {
     label: '01 — About me',
     title: { start: 'From clapperboard ', highlight: 'to commit', end: '.' },
     paragraphs: [
-      'I come from audiovisual production and digital strategy, where I learned to handle the unexpected at a fast pace and to connect products with people.',
-      'Today I build full stack applications with React, Java and Spring Boot: modular, accessible interfaces, secure REST APIs and clean code designed to grow.',
-      'I have worked in teams with Scrum on group projects and taken a solo one from start to finish: design, frontend, backend and tests.',
+      'Full Stack developer working with Java and React. I come from digital marketing, and that experience helps me think beyond the code: what the client needs, what makes sense for the business and how to build it in a simple, scalable way.',
+      "On real projects I've worked in a Scrum team, and I've also taken a solo one from start to finish: design, frontend, backend and tests.",
     ],
     stats: {
       label: 'Projects in numbers',
