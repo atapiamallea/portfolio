@@ -74,7 +74,7 @@ export const SKILL_CATEGORIES = [
     id: 'tools',
     kind: 'technical',
     accent: 'blue',
-    skills: ['Git', 'GitHub', 'Jira', 'Confluence', 'Figma', 'Canva','Claude Code'],
+    skills: ['Git', 'GitHub', 'Jira', 'Confluence', 'Figma', 'Canva', 'Claude Code'],
   },
   {
     id: 'methodologies',
