@@ -5,12 +5,13 @@
 .badge {
   // Compartidas por las caras y el botón: las caras dejan arriba el hueco del botón.
   --face-padding: 1.25rem;
-  --face-gap: 1rem;
+  --face-gap: 0.75rem;
   --flip-button-size: 2.5rem; // 40px: supera el mínimo de 24px (WCAG 2.5.8)
 
   display: grid;
+  grid-template-rows: auto 1fr; // cinta y tarjeta: la tarjeta ocupa el alto que sobre
   justify-items: center;
-  width: min(100%, 20rem);
+  width: min(100%, 16rem);
   margin-inline: auto;
 }
 
@@ -19,7 +20,7 @@
   position: relative;
   z-index: 1;
   width: 2.25rem;
-  height: 4.5rem;
+  height: var(--lanyard-height, 2.75rem); // AboutSection la usa para alinear el texto
   background: repeating-linear-gradient(
     180deg,
     var(--color-violet-deep) 0 10px,
@@ -44,8 +45,10 @@
 // ---------- tarjeta que cuelga ----------
 // Inclinada desde arriba, como si colgara de la cinta. Al pasar el ratón se balancea.
 // `rotate` (y no `transform`) para no pisar el giro de la tarjeta de dentro.
+// Es grid para que la tarjeta se estire si la columna del texto es más alta.
 .hanger {
   position: relative;
+  display: grid;
   width: 100%;
   perspective: 1200px;
   rotate: 4deg;
@@ -138,7 +141,7 @@
 .photo {
   display: grid;
   place-items: center;
-  aspect-ratio: 1;
+  aspect-ratio: 4 / 5; // vertical, como la foto: deja ver hasta la camiseta
   overflow: hidden;
   color: var(--accent-text);
   background: var(--accent-background);
@@ -160,19 +163,22 @@
   object-fit: cover;
 }
 
-// Etiqueta tipo cinta adhesiva, un poco torcida.
+// Etiqueta con nombre y rol: recta y con el mismo borde y esquinas que la foto,
+// para que las dos cajas queden alineadas. overflow recorta la línea divisoria en las esquinas.
 .nameLabel {
   display: grid;
+  overflow: hidden;
   text-align: center;
   background: var(--color-paper);
-  border: 2px solid var(--color-ink);
-  rotate: -2deg;
+  border-radius: var(--radius-md);
+
+  @include brutal-border;
 }
 
 .name {
   padding: 0.35rem 0.5rem 0.2rem;
   font-family: var(--font-display);
-  font-size: 1.6rem;
+  font-size: 1.35rem;
   font-weight: 900;
   text-transform: uppercase;
 }
@@ -223,7 +229,7 @@
 
 .backRole {
   font-family: var(--font-display);
-  font-size: 1.6rem;
+  font-size: 1.35rem;
   font-weight: 900;
   line-height: 1;
   text-transform: uppercase;

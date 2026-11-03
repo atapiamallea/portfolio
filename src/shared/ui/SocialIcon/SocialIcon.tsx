@@ -1,8 +1,9 @@
 import type { ReactNode } from 'react'
 import type { SocialNetwork } from '@/shared/config/site'
 
-// Trazos de 24×24. GitHub y LinkedIn son los logotipos de Simple Icons (licencia CC0);
-// el sobre del correo es un dibujo de línea. Record obliga a tener un icono por red.
+// Trazos de 24×24, todos rellenos para que tengan el mismo peso visual. GitHub y LinkedIn
+// son los logotipos de Simple Icons (licencia CC0); el sobre del correo es el icono "mail"
+// de Material Icons (licencia Apache 2.0). Record obliga a tener un icono por red.
 const SOCIAL_ICON_PATHS: Record<SocialNetwork, ReactNode> = {
   github: (
     <path
@@ -18,11 +19,8 @@ const SOCIAL_ICON_PATHS: Record<SocialNetwork, ReactNode> = {
   ),
   email: (
     <path
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2.25"
-      strokeLinejoin="round"
-      d="M3 5h18v14H3zM3 5l9 7 9-7"
+      fill="currentColor"
+      d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"
     />
   ),
 }
