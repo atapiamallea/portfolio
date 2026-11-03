@@ -23,7 +23,7 @@ export const PROJECTS = [
       'JWT',
       'PostgreSQL',
     ],
-    accent: 'lime',
+    accent: 'green',
     repositories: [
       { kind: 'frontend', url: 'https://github.com/Proyecto-Fundacion-Verisure/frontend' },
       { kind: 'backend', url: 'https://github.com/Proyecto-Fundacion-Verisure/backend' },

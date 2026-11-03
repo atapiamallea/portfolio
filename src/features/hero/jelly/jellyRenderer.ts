@@ -17,14 +17,17 @@ const NODE_EXTRA_RADIUS = 4
 const MOVING_STRETCH = 0.05
 const STRETCHED_STRETCH = 0.5
 
-/** Lee los colores de las variables CSS (`--color-ink`…) que hay en la página. */
+/**
+ * Lee los colores de las variables CSS que hay en la página. Las líneas usan `--color-line`,
+ * que cambia con el tema: tinta en claro y papel en oscuro.
+ */
 export function readJellyColors(element: Element): JellyColors {
   const computedStyle = getComputedStyle(element)
-  const ink = computedStyle.getPropertyValue('--color-ink').trim()
+  const line = computedStyle.getPropertyValue('--color-line').trim()
   const orange = computedStyle.getPropertyValue('--color-orange').trim()
   const violet = computedStyle.getPropertyValue('--color-violet').trim()
 
-  return { line: ink, restingNode: ink, movingNode: orange, stretchedNode: violet }
+  return { line, restingNode: line, movingNode: orange, stretchedNode: violet }
 }
 
 /** Traza una línea entre dos puntos, si el segundo existe (en los bordes no hay vecino). */

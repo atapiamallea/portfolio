@@ -14,6 +14,9 @@ import { drawJellyGrid, readJellyColors, type JellyColors } from './jellyRendere
 
 const REDUCED_MOTION_QUERY = '(prefers-reduced-motion: reduce)'
 
+// El tema vive en <html data-theme>: al cambiar, los colores de las líneas cambian.
+const THEME_OBSERVER_OPTIONS: MutationObserverInit = { attributeFilter: ['data-theme'] }
+
 /**
  * Animación de la red gelatina sobre un canvas.
  *
@@ -26,8 +29,9 @@ const REDUCED_MOTION_QUERY = '(prefers-reduced-motion: reduce)'
 export class JellyGridAnimation {
   private readonly canvas: HTMLCanvasElement
   private readonly context: CanvasRenderingContext2D
-  private readonly colors: JellyColors
+  private colors: JellyColors
   private readonly resizeObserver: ResizeObserver
+  private readonly themeObserver: MutationObserver
   private readonly reducedMotionQuery: MediaQueryList
   private grid: JellyGrid = createJellyGrid(0, 0)
   private pointer: JellyPointer = INACTIVE_POINTER
@@ -45,12 +49,14 @@ export class JellyGridAnimation {
     this.context = context
     this.colors = readJellyColors(canvas)
     this.resizeObserver = new ResizeObserver(this.handleResize)
+    this.themeObserver = new MutationObserver(this.handleThemeChange)
     this.reducedMotionQuery = window.matchMedia(REDUCED_MOTION_QUERY)
   }
 
   /** Empieza a escuchar. El ResizeObserver avisa nada más observar, y eso dibuja la red. */
   start() {
     this.resizeObserver.observe(this.canvas)
+    this.themeObserver.observe(document.documentElement, THEME_OBSERVER_OPTIONS)
     this.canvas.addEventListener('pointermove', this.handlePointerMove)
     this.canvas.addEventListener('pointerleave', this.handlePointerLeave)
     this.reducedMotionQuery.addEventListener('change', this.handleReducedMotionChange)
@@ -59,6 +65,7 @@ export class JellyGridAnimation {
   /** Deja de escuchar y para el bucle. Es una propiedad flecha para poder pasarla como limpieza. */
   destroy = () => {
     this.resizeObserver.disconnect()
+    this.themeObserver.disconnect()
     this.canvas.removeEventListener('pointermove', this.handlePointerMove)
     this.canvas.removeEventListener('pointerleave', this.handlePointerLeave)
     this.reducedMotionQuery.removeEventListener('change', this.handleReducedMotionChange)
@@ -84,6 +91,12 @@ export class JellyGridAnimation {
       this.pointer = movePointer(this.pointer, pointerX, pointerY)
       this.startLoop()
     }
+  }
+
+  // Con el tema nuevo ya aplicado en <html>, se vuelven a leer los colores y se redibuja.
+  private handleThemeChange = () => {
+    this.colors = readJellyColors(this.canvas)
+    this.draw()
   }
 
   // Al salir, los puntos vuelven a su sitio: hace falta animar esa vuelta.

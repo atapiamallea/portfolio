@@ -1,30 +1,36 @@
 import { useTranslation } from '@/shared/i18n'
 import { joinClassNames } from '@/shared/lib/joinClassNames'
-import { PROFILE } from '../../data/profile'
-import { ProjectStats } from '../ProjectStats/ProjectStats'
 import styles from './ProfileBadge.module.scss'
-
-const FEATURED_TECHNOLOGIES = PROFILE.featuredTechnologies.join(' · ')
 
 interface BadgeBackProps {
   /** La cara que no se ve lleva `inert`: ni Tab ni el lector de pantalla llegan a ella. */
   isHidden: boolean
 }
 
-/** Cara trasera: rol, estadísticas calculadas de proyectos y stack principal. */
+// Los datos son textos fijos y distintos entre sí: sirven como `key`.
+function renderFact(fact: string) {
+  return (
+    <li key={fact} className={styles.fact}>
+      {fact}
+    </li>
+  )
+}
+
+/** Cara trasera: lo personal, fuera del código. De dónde es y algunos datos curiosos. */
 export function BadgeBack({ isHidden }: BadgeBackProps) {
   const { dictionary } = useTranslation()
-  const badgeTexts = dictionary.about.badge
+  const personalTexts = dictionary.about.personal
   const faceClassName = joinClassNames(styles.face, styles.back)
+  const facts = personalTexts.facts.map(renderFact)
 
   return (
     <div className={faceClassName} inert={isHidden}>
       <div className={styles.backContent}>
-        <p className={styles.backRole}>{badgeTexts.role}</p>
-        <ProjectStats />
-        <div className={styles.stack}>
-          <p className={styles.stackLabel}>{badgeTexts.stackLabel}</p>
-          <p className={styles.stackList}>{FEATURED_TECHNOLOGIES}</p>
+        <p className={styles.backTitle}>{personalTexts.title}</p>
+        <p className={styles.origin}>{personalTexts.origin}</p>
+        <div className={styles.facts}>
+          <p className={styles.factsLabel}>{personalTexts.factsLabel}</p>
+          <ul className={styles.factList}>{facts}</ul>
         </div>
       </div>
     </div>

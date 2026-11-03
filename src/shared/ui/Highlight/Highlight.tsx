@@ -10,7 +10,7 @@ interface HighlightProps {
 }
 
 /** Resalta una palabra dentro de un título, como un rotulador ligeramente torcido. */
-export function Highlight({ accent = 'lime', className, children }: HighlightProps) {
+export function Highlight({ accent = 'green', className, children }: HighlightProps) {
   const highlightClassName = joinClassNames(styles.highlight, className)
 
   return (

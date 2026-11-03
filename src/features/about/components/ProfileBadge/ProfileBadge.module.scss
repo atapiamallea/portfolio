@@ -11,8 +11,11 @@
   display: grid;
   grid-template-rows: auto 1fr; // cinta y tarjeta: la tarjeta ocupa el alto que sobre
   justify-items: center;
-  width: min(100%, 16rem);
+  width: min(100%, 20rem);
   margin-inline: auto;
+
+  // La credencial es un objeto de color: su texto es tinta en los dos temas.
+  color: var(--color-ink);
 }
 
 // ---------- cinta (decoración) ----------
@@ -23,7 +26,7 @@
   height: var(--lanyard-height, 2.75rem); // AboutSection la usa para alinear el texto
   background: repeating-linear-gradient(
     180deg,
-    var(--color-violet-deep) 0 10px,
+    var(--color-ink) 0 10px,
     var(--color-violet) 10px 20px
   );
   border: var(--border);
@@ -94,7 +97,7 @@
   padding-top: calc(var(--face-padding) + var(--flip-button-size) + var(--face-gap));
   background:
     repeating-linear-gradient(90deg, transparent 0 14px, rgb(13 13 13 / 7%) 14px 28px),
-    var(--color-lime);
+    var(--color-green);
   border-radius: var(--radius-lg);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -127,9 +130,10 @@
   background: var(--color-paper);
   border-radius: var(--radius-pill);
 
-  @include brutal-border;
-  @include brutal-shadow;
-  @include press-effect;
+  // Va encima de la tarjeta de color: borde y sombra tinta en los dos temas.
+  @include brutal-border(var(--color-ink));
+  @include brutal-shadow(var(--color-ink));
+  @include press-effect(var(--color-ink));
 }
 
 .flipIcon {
@@ -147,7 +151,8 @@
   background: var(--accent-background);
   border-radius: var(--radius-md);
 
-  @include brutal-border;
+  // Bordes "impresos" en la tarjeta: tinta en los dos temas.
+  @include brutal-border(var(--color-ink));
 }
 
 .initial {
@@ -172,7 +177,7 @@
   background: var(--color-paper);
   border-radius: var(--radius-md);
 
-  @include brutal-border;
+  @include brutal-border(var(--color-ink));
 }
 
 .name {
@@ -200,7 +205,7 @@
   place-items: center;
   width: 2.75rem; // 44px: objetivo táctil cómodo
   height: 2.75rem;
-  color: var(--color-lime);
+  color: var(--color-green);
   background: var(--color-ink);
   border-radius: var(--radius-sm);
   transition: transform 0.15s ease;
@@ -217,17 +222,18 @@
 
 // ---------- cara trasera ----------
 // Borde discontinuo interior, como el reverso de una acreditación.
-// space-between: el rol arriba, el stack abajo y las estadísticas en medio.
+// Fondo verde liso: las rayas de la tarjeta, detrás del texto, dificultaban la lectura.
 .backContent {
   display: grid;
   gap: 1.25rem;
-  align-content: space-between;
+  align-content: start;
   padding: 1.25rem 1rem;
+  background: var(--color-green);
   border: 2px dashed var(--color-ink);
   border-radius: var(--radius-md);
 }
 
-.backRole {
+.backTitle {
   font-family: var(--font-display);
   font-size: 1.35rem;
   font-weight: 900;
@@ -235,20 +241,43 @@
   text-transform: uppercase;
 }
 
-.stack {
+.origin {
+  font-weight: 700;
+}
+
+.facts {
   display: grid;
-  gap: 0.25rem;
+  gap: 0.6rem;
   padding-top: 1rem;
   border-top: 2px dashed var(--color-ink);
 }
 
-.stackLabel {
+.factsLabel {
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
-.stackList {
-  font-weight: 700;
+.factList {
+  display: grid;
+  gap: 0.5rem;
+}
+
+// Viñeta dibujada con CSS: un cuadrado violeta girado, como un rombo.
+.fact {
+  position: relative;
+  padding-left: 1.1rem;
+
+  &::before {
+    position: absolute;
+    top: 0.5em;
+    left: 0;
+    width: 0.45rem;
+    height: 0.45rem;
+    content: '';
+    background: var(--color-violet);
+    border: 1.5px solid var(--color-ink);
+    transform: rotate(45deg);
+  }
 }

@@ -2,31 +2,32 @@
 // Estos valores se publican como CSS custom properties en global.scss;
 // los componentes usan las variables CSS, no estos mapas directamente.
 
+// Paleta inspirada en hipuku.dev: tonos con una luminosidad parecida, por eso combinan.
 $palette: (
-  'ink': #0d0d0d,
-  'paper': #efece0,
-  'lime': #c6f432,
-  'violet': #8e7cf3,
-  // Violeta para TEXTO sobre fondos claros (5.7:1 sobre paper).
-  'violet-deep': #5b3fd6,
-  'pink': #f59ae6,
-  'orange': #ff6b1a,
-  'blue': #4c7dff,
+  'ink': #121213,
+  // Superficie oscura un poco más clara: alterna con ink en el modo oscuro.
+  'ink-raised': #1f1f20,
+  'paper': #faf0e8,
+  'green': #82d25d,
+  // El violeta oscuro de hipuku (quasar-dark): se separa mejor del verde que el claro.
+  'violet': #9b72e6,
+  'pink': #f28bad,
+  'orange': #f78d2c,
+  'blue': #7193ed,
   'white': #fff,
 );
 
 // Acento → color de texto legible sobre él (WCAG AA: ≥ 4.5:1 para texto normal).
 // Debe coincidir con el tipo `Accent` de tokens.ts.
 $accents: (
-  'lime': 'ink',
+  'green': 'ink',
+  // Tinta sobre violeta da 5.3:1.
   'violet': 'ink',
   'pink': 'ink',
   'orange': 'ink',
-  // Blanco sobre azul solo da 3.7:1.
+  // Blanco sobre azul no llega a 4.5:1; tinta da 6.3:1.
   'blue': 'ink',
-  // Violeta oscuro: el único fondo de color con texto blanco legible (6.7:1).
-  'violet-deep': 'white',
-  'ink': 'lime',
+  'ink': 'green',
   'paper': 'ink',
 );
 
@@ -50,5 +51,6 @@ $border-width: 3px;
 $shadow-offset: 6px;
 $grid-size: 48px;
 
-$font-display: 'Archivo', 'Space Grotesk', sans-serif;
-$font-body: 'Space Grotesk', system-ui, sans-serif;
+// Parkinsans para todo, como hipuku.dev: redondeada y con personalidad. Su peso máximo es 800.
+$font-display: 'Parkinsans', system-ui, sans-serif;
+$font-body: 'Parkinsans', system-ui, sans-serif;

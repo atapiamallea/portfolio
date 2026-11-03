@@ -10,6 +10,4 @@ export interface ProfilePhoto {
 export interface Profile {
   /** Sin foto, la credencial muestra la inicial del nombre sobre color. */
   readonly photo?: ProfilePhoto
-  /** Las tecnologías que se ven en el reverso de la credencial. */
-  readonly featuredTechnologies: readonly string[]
 }

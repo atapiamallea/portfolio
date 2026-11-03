@@ -7,3 +7,7 @@
 
   @include dark-surface;
 }
+
+:global(:root[data-theme='dark']) .footer {
+  border-top: var(--border);
+}

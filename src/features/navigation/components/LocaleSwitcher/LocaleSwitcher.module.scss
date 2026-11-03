@@ -21,12 +21,18 @@
   border-radius: var(--radius-pill);
 
   &:hover {
-    background: rgb(13 13 13 / 8%);
+    background: color-mix(in srgb, var(--color-line) 10%, transparent);
   }
 
-  // El idioma activo: tinta con texto lima (≥ 15:1).
+  // El idioma activo: tinta con texto verde (10.1:1).
   &[aria-pressed='true'] {
-    color: var(--color-lime);
+    color: var(--color-green);
     background: var(--color-ink);
   }
+}
+
+// En oscuro, el idioma activo se invierte: verde con texto tinta (10.1:1).
+:global(:root[data-theme='dark']) .option[aria-pressed='true'] {
+  color: var(--color-ink);
+  background: var(--color-green);
 }

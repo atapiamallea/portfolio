@@ -13,7 +13,7 @@ export const SKILL_CATEGORIES = [
   {
     id: 'frontend',
     kind: 'technical',
-    accent: 'lime',
+    accent: 'green',
     skills: [
       // Lenguajes
       'HTML',
@@ -85,7 +85,7 @@ export const SKILL_CATEGORIES = [
   {
     id: 'marketing',
     kind: 'complementary',
-    accent: 'violet-deep',
+    accent: 'violet',
     skills: ['Google Analytics', 'Meta Ads', 'Google Ads', 'WordPress (elementor)'],
   },
   {

@@ -18,6 +18,9 @@ export const en: Dictionary = {
   localeSwitcher: {
     groupLabel: 'Language',
   },
+  themeToggle: {
+    label: 'Dark mode',
+  },
   navigation: {
     label: 'Main',
     menuButton: 'Menu',
@@ -37,7 +40,6 @@ export const en: Dictionary = {
     pause: 'Pause the ticker',
   },
   hero: {
-    availability: 'Open to work',
     title: { start: "Hi, I'm ", highlight: 'Andrea', end: '' },
     subtitle:
       'Full Stack developer working with React and Java. I build interfaces with personality and APIs that work.',
@@ -48,21 +50,24 @@ export const en: Dictionary = {
     label: '01 — About me',
     title: { start: 'From clapperboard ', highlight: 'to commit', end: '.' },
     paragraphs: [
-      'I come from audiovisual production and digital strategy, where I learned to handle the unexpected at a fast pace and to connect products with people.',
-      'Today I build full stack applications with React, Java and Spring Boot: modular, accessible interfaces, secure REST APIs and clean code designed to grow.',
-      'I have worked in teams with Scrum on group projects and taken a solo one from start to finish: design, frontend, backend and tests.',
+      'Full Stack developer working with Java and React. I come from digital marketing, and that experience helps me think beyond the code: what the client needs, what makes sense for the business and how to build it in a simple, scalable way.',
+      "On real projects I've worked in a Scrum team, and I've also taken a solo one from start to finish: design, frontend, backend and tests.",
     ],
-    stats: {
-      label: 'Projects in numbers',
-      total: { one: 'project', other: 'projects' },
-      team: { one: 'team project', other: 'team projects' },
-      solo: { one: 'solo project', other: 'solo projects' },
-    },
     badge: {
       role: 'Full Stack Developer',
       flipButton: 'Flip the badge',
       socialLabel: 'Social links',
-      stackLabel: 'Main stack',
+    },
+    personal: {
+      title: 'Off the clock',
+      origin: 'From La Paz, Bolivia. Living in Barcelona since 2021.',
+      factsLabel: 'Fun facts',
+      facts: [
+        'From clapperboard to commit: 4 years at a TV channel, then digital marketing, and now development.',
+        'My hobby: artistic and special effects makeup.',
+        'I design and make my own earrings.',
+        'I love anything creative, on and off the screen.',
+      ],
     },
   },
   projects: {

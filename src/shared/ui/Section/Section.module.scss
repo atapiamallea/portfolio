@@ -39,3 +39,22 @@
   max-width: var(--content-max-width);
   margin-inline: auto;
 }
+
+// ---------- modo oscuro ----------
+// Todas las secciones oscuras, alternando dos tonos. El color de la sección solo tiñe
+// la cuadrícula: el color de verdad vive en tarjetas, resaltados y botones.
+:global(:root[data-theme='dark']) .section {
+  --section-grid-color: color-mix(in srgb, var(--accent-background) 22%, transparent);
+
+  color: var(--color-text);
+  background-color: var(--color-surface);
+
+  &:nth-of-type(even) {
+    background-color: var(--color-surface-alt);
+  }
+}
+
+// Papel y tinta no tiñen: una cuadrícula blanca muy tenue.
+:global(:root[data-theme='dark']) .section:is([data-accent='paper'], [data-accent='ink']) {
+  --section-grid-color: rgb(255 255 255 / 7%);
+}

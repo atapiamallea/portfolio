@@ -11,7 +11,7 @@ interface SectionLabelProps {
 }
 
 /** Rótulo en forma de píldora que va encima de un título: "Disponible para trabajar", "01 — Sobre mí"… */
-export function SectionLabel({ accent = 'lime', className, children }: SectionLabelProps) {
+export function SectionLabel({ accent = 'green', className, children }: SectionLabelProps) {
   const labelClassName = joinClassNames(styles.label, className)
 
   return (

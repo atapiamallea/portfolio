@@ -18,7 +18,7 @@ type ButtonAsButton = ButtonOwnProps & ComponentProps<'button'> & { href?: undef
 export type ButtonProps = ButtonAsLink | ButtonAsButton
 
 const VARIANT_ACCENT: Record<ButtonVariant, Accent> = {
-  primary: 'lime',
+  primary: 'green',
   secondary: 'paper',
   inverted: 'ink',
 }

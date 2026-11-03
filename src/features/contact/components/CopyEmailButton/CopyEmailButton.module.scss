@@ -4,9 +4,11 @@
 }
 
 .button[data-status='copied'] {
-  background: var(--color-lime);
+  color: var(--color-ink);
+  background: var(--color-green);
 }
 
 .button[data-status='failed'] {
+  color: var(--color-ink);
   background: var(--color-pink);
 }
