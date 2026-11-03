@@ -1,0 +1,5 @@
+// <main> solo recibe el foco al usar el skip-link: no es un control, así que no
+// necesita anillo. El siguiente Tab ya lleva al primer elemento del contenido.
+.main:focus {
+  outline: none;
+}

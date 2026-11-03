@@ -1,0 +1,105 @@
+@use '@/shared/styles/mixins' as *;
+
+// Se amplía un poco para que, al inclinarla, no se vean huecos en las esquinas.
+$tilt-scale: 1.05;
+// Lo que la cinta sobresale de la pantalla por cada lado al ampliarla (2.5% del ancho).
+$overflow-per-side: calc(($tilt-scale - 1) / 2 * 100%);
+
+// Franja inclinada que monta sobre el hero y "Sobre mí" (márgenes negativos + z-index).
+.marquee {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  margin-block: -1.5rem;
+  color: var(--color-ink);
+  background: var(--color-green);
+  border-block: var(--border);
+  transform: rotate(-2deg) scale($tilt-scale);
+}
+
+.viewport {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+// Las dos copias de la lista, una detrás de otra. Al llegar a -50% la segunda copia
+// está justo donde empezó la primera, así que el salto al principio no se nota.
+.track {
+  display: flex;
+  width: max-content;
+  animation: marquee var(--marquee-duration, 35s) linear infinite;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+// Se para con el botón y con el ratón sobre el texto. El :hover va en .viewport y no en
+// toda la cinta: si incluyera el botón, al pulsar ▶ la cinta seguiría parada por tener
+// el ratón encima y parecería que el botón no funciona.
+.marquee[data-paused='true'] .track,
+.viewport:hover .track {
+  animation-play-state: paused;
+}
+
+.list {
+  display: flex;
+}
+
+.item {
+  padding: 0.7rem 1.5rem;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+// Decoración: el violeta sobre verde no necesita contraste de texto.
+.separator {
+  margin-left: 3rem;
+  color: var(--color-violet);
+}
+
+// Fijo en un extremo de la cinta: no se desplaza con el texto. El margen derecho suma lo
+// que la cinta sobresale de la pantalla; sin él, el botón quedaría cortado por el borde.
+// Mismo estilo que Button (variante secondary): borde, sombra dura y efecto de pulsar.
+.pauseButton {
+  // Sombra más corta, proporcionada a un botón pequeño. brutal-shadow y press-effect
+  // leen esta misma variable, así que el efecto de pulsar se ajusta solo.
+  --shadow-offset: 4px;
+
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 2.5rem; // 40px: cabe en la cinta y supera el mínimo de 24px (WCAG 2.5.8)
+  height: 2.5rem;
+  // El margen inferior igual a la sombra centra en la cinta el botón junto con su sombra,
+  // así queda el mismo espacio arriba y abajo.
+  margin-block-end: var(--shadow-offset);
+  margin-inline: 0.5rem calc($overflow-per-side + var(--section-padding-x));
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-ink);
+  background: var(--color-paper);
+  border-radius: var(--radius-pill);
+
+  @include brutal-border;
+  @include brutal-shadow;
+  @include press-effect;
+}
+
+// Sin movimiento no hay nada que pausar.
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    animation: none;
+  }
+
+  .pauseButton {
+    display: none;
+  }
+}

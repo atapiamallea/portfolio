@@ -1,0 +1,38 @@
+@use '@/shared/styles/mixins' as *;
+
+// Sin overflow: hidden, para que no recorte el anillo de foco de los botones.
+// Misma altura que el resto de controles de la navbar (Contacto y ☰): 44px.
+// Los botones de dentro ocupan el alto que queda tras el borde y el relleno.
+.switcher {
+  display: flex;
+  gap: 0.2rem;
+  height: 2.75rem;
+  padding: 0.2rem;
+  border-radius: var(--radius-pill);
+
+  @include brutal-border;
+}
+
+.option {
+  min-width: 2.5rem;
+  height: 100%;
+  padding: 0 0.6rem;
+  font-weight: 700;
+  border-radius: var(--radius-pill);
+
+  &:hover {
+    background: color-mix(in srgb, var(--color-line) 10%, transparent);
+  }
+
+  // El idioma activo: tinta con texto verde (10.1:1).
+  &[aria-pressed='true'] {
+    color: var(--color-green);
+    background: var(--color-ink);
+  }
+}
+
+// En oscuro, el idioma activo se invierte: verde con texto tinta (10.1:1).
+:global(:root[data-theme='dark']) .option[aria-pressed='true'] {
+  color: var(--color-ink);
+  background: var(--color-green);
+}

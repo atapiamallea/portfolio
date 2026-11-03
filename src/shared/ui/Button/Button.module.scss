@@ -1,0 +1,38 @@
+@use '@/shared/styles/mixins' as *;
+
+.button {
+  --button-shadow-color: var(--color-line);
+
+  display: inline-flex;
+  gap: 0.5em;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem; // 44px: objetivo táctil cómodo
+  padding: 0.9rem 1.6rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--accent-text);
+  background: var(--accent-background);
+  border-radius: var(--radius-pill);
+
+  @include brutal-border;
+  @include brutal-shadow(var(--button-shadow-color));
+  @include press-effect(var(--button-shadow-color));
+}
+
+// Sobre fondos oscuros la sombra tinta no se vería: pasa a ser clara.
+.inverted {
+  --button-shadow-color: var(--color-paper);
+}
+
+.lg {
+  padding: 1.1rem 2.2rem;
+  font-size: clamp(1.1rem, 3vw, 2rem);
+}
+
+// En oscuro, un botón papel con borde y sombra papel sería una mancha clara:
+// el secundario pasa a superficie oscura con texto claro (16.7:1).
+:global(:root[data-theme='dark']) .secondary {
+  --accent-background: var(--color-ink-raised);
+  --accent-text: var(--color-paper);
+}

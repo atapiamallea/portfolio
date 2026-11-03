@@ -1,0 +1,14 @@
+@use '@/shared/styles/mixins' as *;
+
+.highlight {
+  display: inline-block;
+
+  // Arriba un poco más: las tildes de las mayúsculas (SÉ, CIÓN) no tocan el borde.
+  padding: 0.08em 0.15em 0;
+  color: var(--accent-text);
+  background: var(--accent-background);
+  border-radius: var(--radius-sm);
+  transform: rotate(-2deg);
+
+  @include brutal-border;
+}

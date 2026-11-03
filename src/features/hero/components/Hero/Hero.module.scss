@@ -1,0 +1,85 @@
+@use '@/shared/styles/mixins' as *;
+
+// La sección es la referencia del canvas (position: relative) y lo recorta (overflow: hidden).
+// Con grid + align-content el contenido queda centrado en vertical y sigue ocupando el ancho.
+.hero {
+  position: relative;
+  display: grid;
+  align-content: center;
+  min-height: min(80vh, 720px);
+  overflow: hidden;
+
+  // El contenedor de la sección tiene margin-inline: auto. En un grid eso lo encoge a lo
+  // que mide su contenido y lo centra; con el ancho completo se queda alineado a la izquierda.
+  > * {
+    width: 100%;
+  }
+}
+
+// Por encima del canvas. Deja pasar el puntero para que la red reaccione también bajo
+// el texto; solo los enlaces lo recuperan para poder pulsarlos.
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: flex-start;
+  pointer-events: none;
+
+  a {
+    pointer-events: auto;
+  }
+}
+
+.title {
+  font-size: clamp(3.5rem, 11vw, 8.5rem);
+}
+
+// La mitad que el nombre y en su propia línea: "Hola, soy" presenta y "Andrea" destaca.
+.greeting {
+  display: block;
+  margin-bottom: 0.15em;
+  font-size: 0.5em;
+}
+
+// Decoración. Solo gira con el ratón sobre el hero: un movimiento que no para y que no
+// inicia la persona necesitaría un botón de pausa (WCAG 2.2.2). El reset la detiene
+// también con prefers-reduced-motion.
+.star {
+  display: inline-block;
+  margin-left: 0.1em;
+  color: var(--color-orange);
+}
+
+// Se escucha en la sección y no en el título: el contenido tiene pointer-events: none
+// para que el cursor llegue a la red, así que el título nunca recibe :hover.
+.hero:hover .star {
+  animation: spin 8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Caja sólida como el resaltado del nombre, con su misma inclinación: la cuadrícula de detrás no deja leer el texto.
+// Es un objeto de color, así que papel con texto tinta en los dos temas (16.7:1).
+.subtitle {
+  max-width: 34rem;
+  padding: 0.6em 0.9em;
+  font-size: clamp(1.05rem, 2vw, 1.4rem);
+  color: var(--color-ink);
+  background: var(--color-paper);
+  border-radius: var(--radius-sm);
+  transform: rotate(-2deg);
+
+  @include brutal-border;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}

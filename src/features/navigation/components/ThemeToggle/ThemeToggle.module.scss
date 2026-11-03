@@ -1,0 +1,22 @@
+@use '@/shared/styles/mixins' as *;
+
+// Misma altura que el selector de idioma y el botón ☰: 44px.
+.toggle {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-pill);
+  transition: background 0.15s ease;
+
+  @include brutal-border;
+
+  &:hover {
+    background: color-mix(in srgb, var(--color-line) 10%, transparent);
+  }
+}
+
+.icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}

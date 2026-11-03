@@ -1,0 +1,38 @@
+@use '@/shared/styles/mixins' as *;
+
+// Móvil: texto y credencial uno debajo de otro. Escritorio: lado a lado y con la misma altura.
+.layout {
+  // Alto de la cinta de la credencial: ProfileBadge lo lee para pintarla.
+  --lanyard-height: 2.75rem;
+
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+
+  @include respond-to('md') {
+    grid-template-columns: 1.5fr 1fr;
+    align-items: stretch;
+  }
+}
+
+.panel {
+  display: grid;
+  gap: 1rem;
+  align-content: center;
+
+  // La tarjeta empieza debajo de la cinta: el panel baja lo mismo para que
+  // los dos empiecen y terminen a la misma altura.
+  @include respond-to('md') {
+    margin-block-start: var(--lanyard-height);
+  }
+}
+
+// Dentro de la tarjeta el título es más pequeño que en el resto de secciones.
+.header h2 {
+  font-size: clamp(2rem, 5vw, 3.6rem);
+}
+
+.paragraph {
+  max-width: 60ch;
+  font-size: 1.1rem;
+}

@@ -1,0 +1,60 @@
+@use '@/shared/styles/mixins' as *;
+
+.section {
+  // Las líneas de la cuadrícula cambian según el fondo para que se vean sin molestar.
+  --section-grid-color: rgb(13 13 13 / 15%);
+
+  padding-block: clamp(4rem, 10vw, 6rem);
+  padding-inline: var(--section-padding-x);
+  color: var(--accent-text);
+  background-color: var(--accent-background);
+  border-top: var(--border);
+
+  // La primera sección queda pegada a la navbar, que ya tiene borde inferior:
+  // con los dos, la línea se vería el doble de gruesa.
+  &:first-child {
+    border-top: none;
+  }
+}
+
+.section[data-accent='violet'] {
+  --section-grid-color: rgb(255 255 255 / 20%);
+}
+
+.section[data-accent='ink'] {
+  --section-grid-color: rgb(255 255 255 / 8%);
+
+  @include dark-surface;
+}
+
+.grid {
+  @include grid-bg(var(--section-grid-color));
+}
+
+// El espacio entre la cabecera y el resto del contenido lo pone la sección,
+// así los componentes de dentro no necesitan márgenes externos.
+.content {
+  display: grid;
+  gap: clamp(2rem, 5vw, 3rem);
+  max-width: var(--content-max-width);
+  margin-inline: auto;
+}
+
+// ---------- modo oscuro ----------
+// Todas las secciones oscuras, alternando dos tonos. El color de la sección solo tiñe
+// la cuadrícula: el color de verdad vive en tarjetas, resaltados y botones.
+:global(:root[data-theme='dark']) .section {
+  --section-grid-color: color-mix(in srgb, var(--accent-background) 22%, transparent);
+
+  color: var(--color-text);
+  background-color: var(--color-surface);
+
+  &:nth-of-type(even) {
+    background-color: var(--color-surface-alt);
+  }
+}
+
+// Papel y tinta no tiñen: una cuadrícula blanca muy tenue.
+:global(:root[data-theme='dark']) .section:is([data-accent='paper'], [data-accent='ink']) {
+  --section-grid-color: rgb(255 255 255 / 7%);
+}

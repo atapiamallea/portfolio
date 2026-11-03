@@ -1,0 +1,56 @@
+// Fuente de verdad del sistema de diseño.
+// Estos valores se publican como CSS custom properties en global.scss;
+// los componentes usan las variables CSS, no estos mapas directamente.
+
+// Paleta inspirada en hipuku.dev: tonos con una luminosidad parecida, por eso combinan.
+$palette: (
+  'ink': #121213,
+  // Superficie oscura un poco más clara: alterna con ink en el modo oscuro.
+  'ink-raised': #1f1f20,
+  'paper': #faf0e8,
+  'green': #82d25d,
+  // El violeta oscuro de hipuku (quasar-dark): se separa mejor del verde que el claro.
+  'violet': #9b72e6,
+  'pink': #f28bad,
+  'orange': #f78d2c,
+  'blue': #7193ed,
+  'white': #fff,
+);
+
+// Acento → color de texto legible sobre él (WCAG AA: ≥ 4.5:1 para texto normal).
+// Debe coincidir con el tipo `Accent` de tokens.ts.
+$accents: (
+  'green': 'ink',
+  // Tinta sobre violeta da 5.3:1.
+  'violet': 'ink',
+  'pink': 'ink',
+  'orange': 'ink',
+  // Blanco sobre azul no llega a 4.5:1; tinta da 6.3:1.
+  'blue': 'ink',
+  'ink': 'green',
+  'paper': 'ink',
+);
+
+$radii: (
+  'sm': 12px,
+  'md': 18px,
+  'lg': 24px,
+  'xl': 28px,
+  'pill': 999px,
+);
+
+// Mobile-first: cada breakpoint es el ancho MÍNIMO a partir del cual aplica.
+$breakpoints: (
+  'sm': 600px,
+  'md': 800px,
+  'lg': 1100px,
+);
+
+$nav-height: 4.5rem;
+$border-width: 3px;
+$shadow-offset: 6px;
+$grid-size: 48px;
+
+// Parkinsans para todo, como hipuku.dev: redondeada y con personalidad. Su peso máximo es 800.
+$font-display: 'Parkinsans', system-ui, sans-serif;
+$font-body: 'Parkinsans', system-ui, sans-serif;
