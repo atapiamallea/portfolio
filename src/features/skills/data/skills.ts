@@ -13,7 +13,7 @@ export const SKILL_CATEGORIES = [
   {
     id: 'frontend',
     kind: 'technical',
-    accent: 'lime',
+    accent: 'green',
     skills: [
       // Lenguajes
       'HTML',

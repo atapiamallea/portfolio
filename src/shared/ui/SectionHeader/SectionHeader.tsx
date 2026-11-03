@@ -7,7 +7,7 @@ import styles from './SectionHeader.module.scss'
 interface SectionHeaderProps {
   /** Texto del rótulo superior, p. ej. "02 — Proyectos". */
   label: string
-  /** Sobre fondo oscuro conviene `lime`: un rótulo `ink` se perdería. */
+  /** Sobre fondo oscuro conviene `green`: un rótulo `ink` se perdería. */
   labelAccent?: Accent
   /** Puede incluir un Highlight: `<>Lo que <Highlight>sé hacer</Highlight></>`. */
   title: ReactNode

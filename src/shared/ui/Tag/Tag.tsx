@@ -14,7 +14,7 @@ interface TagProps {
  * Sello pequeño e inclinado que marca un estado: "Grupal", "Individual"…
  * No se posiciona solo: quien lo usa decide dónde va (p. ej. en la esquina de una tarjeta).
  */
-export function Tag({ accent = 'lime', className, children }: TagProps) {
+export function Tag({ accent = 'green', className, children }: TagProps) {
   const tagClassName = joinClassNames(styles.tag, className)
 
   return (

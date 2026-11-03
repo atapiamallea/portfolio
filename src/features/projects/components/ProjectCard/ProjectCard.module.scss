@@ -1,7 +1,12 @@
 @use '@/shared/styles/mixins' as *;
 
 // La tarjeta es la referencia para colocar el Tag en su esquina.
+// Sobre el rosa cálido de la sección, el cristal estándar se teñía de rosa y la tarjeta
+// se confundía con el fondo: más blanco y sin avivar el color de detrás.
 .card {
+  --glass-opacity: 60%;
+  --glass-saturation: 100%;
+
   position: relative;
   display: flex;
   flex-direction: column;

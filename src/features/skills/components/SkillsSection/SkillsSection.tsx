@@ -26,7 +26,7 @@ export function SkillsSection() {
     <Section id={SECTION_IDS.skills} titleId={SKILLS_TITLE_ID} accent="ink">
       <SectionHeader
         label={skillsTexts.label}
-        labelAccent="lime"
+        labelAccent="green"
         titleId={SKILLS_TITLE_ID}
         title={<HighlightedText text={skillsTexts.title} />}
       />

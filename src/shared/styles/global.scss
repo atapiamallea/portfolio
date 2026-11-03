@@ -18,7 +18,7 @@
   --grid-size: #{tokens.$grid-size};
   --nav-height: #{tokens.$nav-height};
 
-  // Color del anillo de foco. Las secciones oscuras lo cambian a lima.
+  // Color del anillo de foco. Las secciones oscuras lo cambian a verde.
   --focus-color: var(--color-ink);
 
   --font-display: #{tokens.$font-display};
@@ -29,7 +29,7 @@
 }
 
 // ---------- acentos ----------
-// Un componente con data-accent="lime" recibe --accent-background y --accent-text
+// Un componente con data-accent="green" recibe --accent-background y --accent-text
 // y decide dónde usarlos (fondo, texto, borde…).
 @each $accent, $text-color in tokens.$accents {
   [data-accent='#{$accent}'] {
@@ -71,11 +71,11 @@ h3 {
 
 ::selection {
   color: var(--color-ink);
-  background: var(--color-lime);
+  background: var(--color-green);
 }
 
 // Foco visible solo al navegar con teclado (no al hacer clic).
-// Tinta sobre fondos claros (≥ 15:1); las secciones oscuras usan --focus-color: lime.
+// Tinta sobre fondos claros (≥ 6.3:1, el peor caso es el azul); las secciones oscuras usan --focus-color: green.
 :focus-visible {
   outline: 3px solid var(--focus-color);
   outline-offset: 3px;

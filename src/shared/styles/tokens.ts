@@ -3,4 +3,4 @@
  * Debe coincidir con el mapa `$accents` de _tokens.scss.
  */
 export type Accent =
-  'lime' | 'violet' | 'violet-deep' | 'pink' | 'orange' | 'blue' | 'ink' | 'paper'
+  'green' | 'violet' | 'violet-deep' | 'pink' | 'orange' | 'blue' | 'ink' | 'paper'

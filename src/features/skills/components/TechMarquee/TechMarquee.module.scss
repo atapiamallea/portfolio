@@ -13,7 +13,7 @@ $overflow-per-side: calc(($tilt-scale - 1) / 2 * 100%);
   align-items: center;
   margin-block: -1.5rem;
   color: var(--color-ink);
-  background: var(--color-lime);
+  background: var(--color-green);
   border-block: var(--border);
   transform: rotate(-2deg) scale($tilt-scale);
 }
@@ -59,7 +59,7 @@ $overflow-per-side: calc(($tilt-scale - 1) / 2 * 100%);
   white-space: nowrap;
 }
 
-// Decoración: el violeta sobre lima no necesita contraste de texto.
+// Decoración: el violeta sobre verde no necesita contraste de texto.
 .separator {
   margin-left: 3rem;
   color: var(--color-violet);

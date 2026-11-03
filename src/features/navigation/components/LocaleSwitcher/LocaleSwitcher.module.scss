@@ -24,9 +24,9 @@
     background: rgb(13 13 13 / 8%);
   }
 
-  // El idioma activo: tinta con texto lima (≥ 15:1).
+  // El idioma activo: tinta con texto verde (10.1:1).
   &[aria-pressed='true'] {
-    color: var(--color-lime);
+    color: var(--color-green);
     background: var(--color-ink);
   }
 }

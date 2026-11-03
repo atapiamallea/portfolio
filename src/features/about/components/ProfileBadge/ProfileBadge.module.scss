@@ -94,7 +94,7 @@
   padding-top: calc(var(--face-padding) + var(--flip-button-size) + var(--face-gap));
   background:
     repeating-linear-gradient(90deg, transparent 0 14px, rgb(13 13 13 / 7%) 14px 28px),
-    var(--color-lime);
+    var(--color-green);
   border-radius: var(--radius-lg);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -200,7 +200,7 @@
   place-items: center;
   width: 2.75rem; // 44px: objetivo táctil cómodo
   height: 2.75rem;
-  color: var(--color-lime);
+  color: var(--color-green);
   background: var(--color-ink);
   border-radius: var(--radius-sm);
   transition: transform 0.15s ease;

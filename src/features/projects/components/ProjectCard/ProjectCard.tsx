@@ -9,7 +9,7 @@ import styles from './ProjectCard.module.scss'
 // Record obliga a dar un color a cada tipo: si se añade uno nuevo, no compila hasta elegirlo.
 const TEAM_TYPE_ACCENT: Record<ProjectTeamType, Accent> = {
   team: 'violet-deep',
-  solo: 'lime',
+  solo: 'green',
 }
 
 interface ProjectCardProps {
