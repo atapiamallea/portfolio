@@ -1,6 +1,6 @@
 import { SECTION_IDS } from '@/shared/config/sections'
 import { useTranslation } from '@/shared/i18n'
-import { Button, HighlightedText, Section, SectionLabel } from '@/shared/ui'
+import { Button, Highlight, Section, SectionLabel } from '@/shared/ui'
 import { JellyGrid } from '../JellyGrid/JellyGrid'
 import styles from './Hero.module.scss'
 
@@ -25,8 +25,11 @@ export function Hero() {
 
       <div className={styles.content}>
         <SectionLabel>{hero.availability}</SectionLabel>
+        {/* El saludo va en su propia línea y más pequeño que el nombre, que es lo que destaca. */}
         <h1 id={HERO_TITLE_ID} className={styles.title}>
-          <HighlightedText text={hero.title} />
+          <span className={styles.greeting}>{hero.title.start}</span>
+          <Highlight>{hero.title.highlight}</Highlight>
+          {hero.title.end}
           <span className={styles.star} aria-hidden="true">
             ✶
           </span>

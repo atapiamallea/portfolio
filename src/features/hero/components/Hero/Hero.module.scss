@@ -6,6 +6,12 @@
   align-content: center;
   min-height: min(80vh, 720px);
   overflow: hidden;
+
+  // El contenedor de la sección tiene margin-inline: auto. En un grid eso lo encoge a lo
+  // que mide su contenido y lo centra; con el ancho completo se queda alineado a la izquierda.
+  > * {
+    width: 100%;
+  }
 }
 
 // Por encima del canvas. Deja pasar el puntero para que la red reaccione también bajo
@@ -25,7 +31,14 @@
 }
 
 .title {
-  font-size: clamp(4rem, 14vw, 11rem);
+  font-size: clamp(3.5rem, 11vw, 8.5rem);
+}
+
+// La mitad que el nombre y en su propia línea: "Hola, soy" presenta y "Andrea" destaca.
+.greeting {
+  display: block;
+  margin-bottom: 0.15em;
+  font-size: 0.5em;
 }
 
 // Decoración. Solo gira con el ratón sobre el hero: un movimiento que no para y que no
