@@ -1,0 +1,36 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  justify-content: center;
+}
+
+// Subrayado grueso, como en el prototipo. Al pasar el ratón se rellena de tinta.
+.link {
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+  min-height: 2.75rem; // 44px: objetivo táctil cómodo
+  padding-inline: 0.4rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border-bottom: 3px solid var(--color-ink);
+  transition:
+    color 0.15s ease,
+    background 0.15s ease;
+
+  &:hover {
+    color: var(--color-lime);
+    background: var(--color-ink);
+  }
+}
+
+.icon {
+  width: 1.3rem;
+  height: 1.3rem;
+}
+
+.downloadIcon {
+  font-size: 1.3rem;
+  line-height: 1;
+}

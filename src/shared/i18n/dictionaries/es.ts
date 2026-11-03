@@ -10,6 +10,12 @@ export const es = {
   // Textos que usan varias secciones.
   common: {
     newTabNotice: 'se abre en una pestaña nueva',
+    // Las claves coinciden con SocialNetwork de shared/config/site.ts.
+    networkNames: {
+      github: 'GitHub',
+      linkedin: 'LinkedIn',
+      email: 'Correo',
+    },
   },
   localeSwitcher: {
     groupLabel: 'Idioma',
@@ -36,7 +42,7 @@ export const es = {
     availability: 'Disponible para trabajar',
     title: { start: 'Hola, soy ', highlight: 'Andrea', end: '' },
     subtitle:
-      'Desarrolladora Full Stack recién graduada. Construyo interfaces con personalidad y APIs que funcionan.',
+      'Desarrolladora Full Stack con React y Java. Construyo interfaces con personalidad y APIs que funcionan.',
     primaryAction: 'Ver proyectos ↓',
     secondaryAction: 'Hablemos',
   },
@@ -60,12 +66,6 @@ export const es = {
       flipButton: 'Dar la vuelta a la credencial',
       socialLabel: 'Redes',
       stackLabel: 'Stack principal',
-      // Las claves coinciden con SocialNetwork de shared/config/site.ts.
-      networkNames: {
-        github: 'GitHub',
-        linkedin: 'LinkedIn',
-        email: 'Correo',
-      },
     },
   },
   projects: {
@@ -101,6 +101,16 @@ export const es = {
   contact: {
     label: '04 — Contacto',
     title: { start: '¿Trabajamos ', highlight: 'juntos', end: '?' },
+    intro: '¿Tienes un proyecto o una vacante? Escríbeme y hablamos.',
+    // El texto del botón cambia con el estado de la copia (CopyStatus).
+    copyButton: {
+      idle: 'Copiar correo',
+      copied: '¡Copiado!',
+      failed: 'No se pudo copiar',
+    },
+    linksLabel: 'Otros enlaces',
+    cv: 'CV (PDF)',
+    cvNotice: 'descarga un PDF',
   },
 }
 
