@@ -1,0 +1,12 @@
+// Ancho mínimo para que el botón no cambie de tamaño al pasar de "Copiar correo" a "¡Copiado!".
+.button {
+  min-width: 12rem;
+}
+
+.button[data-status='copied'] {
+  background: var(--color-lime);
+}
+
+.button[data-status='failed'] {
+  background: var(--color-pink);
+}

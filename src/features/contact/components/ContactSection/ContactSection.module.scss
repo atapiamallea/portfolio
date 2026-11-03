@@ -1,0 +1,32 @@
+// Todo centrado, como cierre de la página: título, frase, correo y enlaces.
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  text-align: center;
+}
+
+// La cabecera alinea a la izquierda por defecto: aquí se centra.
+.header {
+  align-items: center;
+}
+
+.intro {
+  max-width: 40ch;
+  font-size: 1.2rem;
+}
+
+// Correo y botón de copiar uno al lado del otro; en móvil, uno debajo del otro.
+.emailActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+// La dirección de correo es larga: en pantallas estrechas puede partirse en dos líneas.
+.emailButton {
+  overflow-wrap: anywhere;
+}

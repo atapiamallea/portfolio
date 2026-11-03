@@ -13,7 +13,7 @@ interface BadgeSocialLinkProps {
  */
 export function BadgeSocialLink({ link }: BadgeSocialLinkProps) {
   const { dictionary } = useTranslation()
-  const networkName = dictionary.about.badge.networkNames[link.network]
+  const networkName = dictionary.common.networkNames[link.network]
   const opensNewTab = link.network !== 'email'
   const accessibleName = opensNewTab
     ? `${networkName}, ${dictionary.common.newTabNotice}`

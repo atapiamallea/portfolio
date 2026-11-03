@@ -9,6 +9,11 @@ export const en: Dictionary = {
   },
   common: {
     newTabNotice: 'opens in a new tab',
+    networkNames: {
+      github: 'GitHub',
+      linkedin: 'LinkedIn',
+      email: 'Email',
+    },
   },
   localeSwitcher: {
     groupLabel: 'Language',
@@ -35,7 +40,7 @@ export const en: Dictionary = {
     availability: 'Open to work',
     title: { start: "Hi, I'm ", highlight: 'Andrea', end: '' },
     subtitle:
-      'Recently graduated Full Stack developer. I build interfaces with personality and APIs that work.',
+      'Full Stack developer working with React and Java. I build interfaces with personality and APIs that work.',
     primaryAction: 'See projects ↓',
     secondaryAction: "Let's talk",
   },
@@ -58,11 +63,6 @@ export const en: Dictionary = {
       flipButton: 'Flip the badge',
       socialLabel: 'Social links',
       stackLabel: 'Main stack',
-      networkNames: {
-        github: 'GitHub',
-        linkedin: 'LinkedIn',
-        email: 'Email',
-      },
     },
   },
   projects: {
@@ -96,5 +96,14 @@ export const en: Dictionary = {
   contact: {
     label: '04 — Contact',
     title: { start: 'Shall we work ', highlight: 'together', end: '?' },
+    intro: 'Got a project or an open role? Write to me and let’s talk.',
+    copyButton: {
+      idle: 'Copy email',
+      copied: 'Copied!',
+      failed: 'Could not copy',
+    },
+    linksLabel: 'Other links',
+    cv: 'CV (PDF)',
+    cvNotice: 'downloads a PDF',
   },
 }
