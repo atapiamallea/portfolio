@@ -20,6 +20,9 @@ export const es = {
   localeSwitcher: {
     groupLabel: 'Idioma',
   },
+  themeToggle: {
+    label: 'Modo oscuro',
+  },
   navigation: {
     label: 'Principal',
     menuButton: 'Menú',

@@ -20,9 +20,9 @@
   &:hover {
     transform: translate(-4px, -4px) rotate(-1deg);
     box-shadow:
-      10px 10px 0 var(--color-ink),
-      inset 0 0 0 2px rgb(255 255 255 / 55%),
-      inset 0 12px 24px rgb(255 255 255 / 35%);
+      10px 10px 0 var(--color-line),
+      inset 0 0 0 2px var(--glass-edge),
+      inset 0 12px 24px var(--glass-glow);
   }
 }
 
@@ -73,7 +73,7 @@
   column-gap: 1.25rem;
   padding-top: 0.4rem;
   font-weight: 700;
-  border-top: 2px dashed var(--color-ink);
+  border-top: 2px dashed var(--color-line);
 }
 
 .link {

@@ -5,6 +5,7 @@ import { joinClassNames } from '@/shared/lib/joinClassNames'
 import { NAVIGATION_LINKS, type NavigationLinkData } from '../../data/navigationLinks'
 import { useMobileMenu } from '../../hooks/useMobileMenu'
 import { LocaleSwitcher } from '../LocaleSwitcher/LocaleSwitcher'
+import { ThemeToggle } from '../ThemeToggle/ThemeToggle'
 import { MenuButton } from './MenuButton'
 import { NavigationLink } from './NavigationLink'
 import styles from './Navbar.module.scss'
@@ -18,7 +19,7 @@ function renderNavigationLink(link: NavigationLinkData) {
 /**
  * Barra superior fija. En escritorio los enlaces se ven en línea; en móvil
  * la misma lista se convierte en un desplegable que abre el botón ☰.
- * El orden del DOM (logo, idioma, botón, enlaces) es el orden del foco.
+ * El orden del DOM (logo, tema, idioma, botón, enlaces) es el orden del foco.
  */
 export function Navbar() {
   const { dictionary } = useTranslation()
@@ -34,6 +35,7 @@ export function Navbar() {
         <span className={styles.logoSuffix}>{LOGO_SUFFIX}</span>
       </a>
 
+      <ThemeToggle />
       <LocaleSwitcher />
 
       <nav aria-label={dictionary.navigation.label}>

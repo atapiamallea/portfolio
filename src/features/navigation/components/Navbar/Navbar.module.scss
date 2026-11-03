@@ -11,7 +11,7 @@
   align-items: center;
   min-height: var(--nav-height);
   padding: 0.5rem var(--section-padding-x);
-  background: var(--color-paper);
+  background: var(--color-surface);
   border-bottom: var(--border);
 
   @include respond-to('md') {
@@ -107,7 +107,7 @@
     gap: 0.5rem;
     padding: 1rem var(--section-padding-x) 1.5rem;
     font-size: 1.25rem;
-    background: var(--color-paper);
+    background: var(--color-surface);
     border-bottom: var(--border);
   }
 
@@ -151,5 +151,19 @@
     &:hover {
       text-decoration: none;
     }
+  }
+}
+
+// ---------- modo oscuro ----------
+// Sobre tinta, el violeta oscuro no se lee (1.6:1): el violeta claro da 8.4:1.
+:global(:root[data-theme='dark']) .logoSuffix {
+  color: var(--color-violet);
+}
+
+// Una píldora tinta no se vería sobre la barra oscura: pasa a verde con texto tinta.
+:global(:root[data-theme='dark']) .callToAction {
+  @include respond-to('md') {
+    color: var(--color-ink);
+    background: var(--color-green);
   }
 }

@@ -12,20 +12,53 @@
   }
 
   --border-width: #{tokens.$border-width};
-  --border: var(--border-width) solid var(--color-ink);
+  --border: var(--border-width) solid var(--color-line);
   --shadow-offset: #{tokens.$shadow-offset};
-  --shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--color-ink);
+  --shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--color-line);
   --grid-size: #{tokens.$grid-size};
   --nav-height: #{tokens.$nav-height};
 
-  // Color del anillo de foco. Las secciones oscuras lo cambian a verde.
-  --focus-color: var(--color-ink);
+  // Color del anillo de foco. Las superficies oscuras lo cambian a verde.
+  --focus-color: var(--color-line);
 
   --font-display: #{tokens.$font-display};
   --font-body: #{tokens.$font-body};
 
   --content-max-width: 1300px;
   --section-padding-x: clamp(1rem, 4vw, 2rem);
+}
+
+// ---------- temas ----------
+// Los componentes no usan ink/paper para "texto", "fondo" o "línea": usan estos tokens
+// semánticos, y cada tema decide qué color hay detrás. Los colores de acento no cambian:
+// una tarjeta verde es verde con texto tinta en los dos temas.
+// El tema lo pone un script de index.html en <html data-theme> antes de pintar.
+:root {
+  color-scheme: light;
+
+  --color-text: var(--color-ink);
+  --color-surface: var(--color-paper);
+  // Segunda superficie para alternar secciones. En claro las secciones ya tienen su color.
+  --color-surface-alt: var(--color-paper);
+  // Bordes, sombras y subrayados.
+  --color-line: var(--color-ink);
+  // Cristal: color base (canales RGB) y brillos interiores.
+  --glass-tint: 255 255 255;
+  --glass-edge: rgb(255 255 255 / 55%);
+  --glass-glow: rgb(255 255 255 / 35%);
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --color-text: var(--color-paper);
+  --color-surface: var(--color-ink);
+  --color-surface-alt: var(--color-ink-raised);
+  --color-line: var(--color-paper);
+  --focus-color: var(--color-green);
+  --glass-tint: 31 31 32; // ink-raised
+  --glass-edge: rgb(255 255 255 / 8%);
+  --glass-glow: rgb(255 255 255 / 4%);
 }
 
 // ---------- acentos ----------
@@ -53,8 +86,8 @@ html {
 body {
   font-family: var(--font-body);
   line-height: 1.5;
-  color: var(--color-ink);
-  background: var(--color-paper);
+  color: var(--color-text);
+  background: var(--color-surface);
   overflow-x: clip;
   -webkit-font-smoothing: antialiased;
 }

@@ -9,6 +9,23 @@
       content="Portfolio de Andrea, desarrolladora Full Stack: aplicaciones con React, Java, Spring Boot y PostgreSQL."
     />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script>
+      // Pone el tema antes de pintar, para que no se vea un destello del tema equivocado:
+      // el guardado si lo hay y, si no, el del sistema operativo. ThemeProvider sigue desde aquí.
+      // La clave debe coincidir con la de src/shared/theme/documentTheme.ts.
+      ;(function () {
+        var savedTheme = null
+        try {
+          savedTheme = localStorage.getItem('portfolio-theme')
+        } catch (error) {
+          savedTheme = null
+        }
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+        var isSaved = savedTheme === 'light' || savedTheme === 'dark'
+        var systemTheme = prefersDark ? 'dark' : 'light'
+        document.documentElement.dataset.theme = isSaved ? savedTheme : systemTheme
+      })()
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

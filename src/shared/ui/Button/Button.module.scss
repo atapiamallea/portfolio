@@ -1,7 +1,7 @@
 @use '@/shared/styles/mixins' as *;
 
 .button {
-  --button-shadow-color: var(--color-ink);
+  --button-shadow-color: var(--color-line);
 
   display: inline-flex;
   gap: 0.5em;
@@ -28,4 +28,11 @@
 .lg {
   padding: 1.1rem 2.2rem;
   font-size: clamp(1.1rem, 3vw, 2rem);
+}
+
+// En oscuro, un botón papel con borde y sombra papel sería una mancha clara:
+// el secundario pasa a superficie oscura con texto claro (16.7:1).
+:global(:root[data-theme='dark']) .secondary {
+  --accent-background: var(--color-ink-raised);
+  --accent-text: var(--color-paper);
 }

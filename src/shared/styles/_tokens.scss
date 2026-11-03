@@ -5,9 +5,11 @@
 // Paleta inspirada en hipuku.dev: tonos con una luminosidad parecida, por eso combinan.
 $palette: (
   'ink': #121213,
+  // Superficie oscura un poco más clara: alterna con ink en el modo oscuro.
+  'ink-raised': #1f1f20,
   'paper': #faf0e8,
   'green': #82d25d,
-  'violet': #bf9ff1,
+  'violet': #ac5cd1,
   // Violeta para TEXTO sobre fondos claros (9.9:1 sobre paper).
   'violet-deep': #4f1c8d,
   'pink': #f28bad,

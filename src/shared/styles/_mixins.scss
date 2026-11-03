@@ -17,18 +17,18 @@
 }
 
 /// Borde grueso característico del estilo neo-brutalista.
-@mixin brutal-border($color: var(--color-ink)) {
+@mixin brutal-border($color: var(--color-line)) {
   border: var(--border-width) solid $color;
 }
 
 /// Sombra dura desplazada, sin difuminado.
-@mixin brutal-shadow($color: var(--color-ink), $offset: var(--shadow-offset)) {
+@mixin brutal-shadow($color: var(--color-line), $offset: var(--shadow-offset)) {
   box-shadow: $offset $offset 0 $color;
 }
 
 /// Efecto de "botón físico": al pasar el ratón se hunde a medias y al pulsar del todo.
 /// Requiere que el elemento tenga brutal-shadow con el mismo color.
-@mixin press-effect($shadow-color: var(--color-ink)) {
+@mixin press-effect($shadow-color: var(--color-line)) {
   $half: calc(var(--shadow-offset) / 2);
 
   transition:
@@ -55,17 +55,18 @@
 }
 
 /// Panel de cristal esmerilado con borde y sombra brutalistas.
-/// Quien lo usa puede ajustar `--glass-opacity` (cuánto blanco) y `--glass-saturation`
+/// Quien lo usa puede ajustar `--glass-opacity` (cuánto color del cristal) y `--glass-saturation`
 /// (cuánto se aviva el color de detrás) si el fondo de su sección lo necesita.
+/// El color del cristal y sus brillos (`--glass-tint`, `--glass-edge`, `--glass-glow`) los pone el tema.
 @mixin glass {
   @include brutal-border;
 
-  background: rgb(255 255 255 / var(--glass-opacity, 35%));
+  background: rgb(var(--glass-tint) / var(--glass-opacity, 35%));
   border-radius: var(--radius-xl);
   box-shadow:
     var(--shadow),
-    inset 0 0 0 2px rgb(255 255 255 / 55%),
-    inset 0 12px 24px rgb(255 255 255 / 35%);
+    inset 0 0 0 2px var(--glass-edge),
+    inset 0 12px 24px var(--glass-glow);
   -webkit-backdrop-filter: blur(14px) saturate(var(--glass-saturation, 160%));
   backdrop-filter: blur(14px) saturate(var(--glass-saturation, 160%));
 }

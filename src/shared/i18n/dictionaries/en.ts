@@ -18,6 +18,9 @@ export const en: Dictionary = {
   localeSwitcher: {
     groupLabel: 'Language',
   },
+  themeToggle: {
+    label: 'Dark mode',
+  },
   navigation: {
     label: 'Main',
     menuButton: 'Menu',

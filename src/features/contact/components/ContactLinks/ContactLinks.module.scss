@@ -14,7 +14,7 @@
   padding-inline: 0.4rem;
   font-size: 1.2rem;
   font-weight: 700;
-  border-bottom: 3px solid var(--color-ink);
+  border-bottom: 3px solid var(--color-line);
   transition:
     color 0.15s ease,
     background 0.15s ease;
@@ -33,4 +33,10 @@
 .downloadIcon {
   font-size: 1.3rem;
   line-height: 1;
+}
+
+// En oscuro, el relleno tinta no se vería: el hover pasa a verde con texto tinta.
+:global(:root[data-theme='dark']) .link:hover {
+  color: var(--color-ink);
+  background: var(--color-green);
 }

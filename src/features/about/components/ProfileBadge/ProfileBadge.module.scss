@@ -13,6 +13,9 @@
   justify-items: center;
   width: min(100%, 16rem);
   margin-inline: auto;
+
+  // La credencial es un objeto de color: su texto es tinta en los dos temas.
+  color: var(--color-ink);
 }
 
 // ---------- cinta (decoración) ----------
@@ -127,9 +130,10 @@
   background: var(--color-paper);
   border-radius: var(--radius-pill);
 
-  @include brutal-border;
-  @include brutal-shadow;
-  @include press-effect;
+  // Va encima de la tarjeta de color: borde y sombra tinta en los dos temas.
+  @include brutal-border(var(--color-ink));
+  @include brutal-shadow(var(--color-ink));
+  @include press-effect(var(--color-ink));
 }
 
 .flipIcon {
@@ -147,7 +151,8 @@
   background: var(--accent-background);
   border-radius: var(--radius-md);
 
-  @include brutal-border;
+  // Bordes "impresos" en la tarjeta: tinta en los dos temas.
+  @include brutal-border(var(--color-ink));
 }
 
 .initial {
@@ -172,7 +177,7 @@
   background: var(--color-paper);
   border-radius: var(--radius-md);
 
-  @include brutal-border;
+  @include brutal-border(var(--color-ink));
 }
 
 .name {
