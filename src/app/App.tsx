@@ -1,35 +1,25 @@
+import { AboutSection } from '@/features/about'
 import { Hero } from '@/features/hero'
 import { ProjectsSection } from '@/features/projects'
 import { TechMarquee } from '@/features/skills'
 import { SECTION_IDS } from '@/shared/config/sections'
 import { useTranslation } from '@/shared/i18n'
-import { Button, GlassPanel, HighlightedText, Section, SectionHeader } from '@/shared/ui'
+import { Button, HighlightedText, Section, SectionHeader } from '@/shared/ui'
 import styles from './App.module.scss'
 
-// Página principal. Hero, cinta y Proyectos ya son las secciones reales (Fases 4, 5 y 7);
-// el resto sigue siendo el escaparate temporal del sistema de diseño y se sustituye en
-// las Fases 6, 8 y 9. AppLayout pone alrededor la navbar, <main> y el footer.
+// Página principal. Hero, cinta, Sobre mí y Proyectos ya son las secciones reales
+// (Fases 4 a 7); Skills y Contacto siguen siendo el escaparate temporal y se sustituyen
+// en las Fases 8 y 9. AppLayout pone alrededor la navbar, <main> y el footer.
 export function App() {
   const { dictionary } = useTranslation()
-  const { about, skills, contact } = dictionary
+  const { skills, contact } = dictionary
   const heroHref = `#${SECTION_IDS.hero}`
 
   return (
     <>
       <Hero />
       <TechMarquee />
-
-      <Section id={SECTION_IDS.about} titleId="sobre-mi-title" accent="violet">
-        <GlassPanel padding="lg" className={styles.aboutPanel}>
-          <SectionHeader
-            label={about.label}
-            titleId="sobre-mi-title"
-            title={<HighlightedText text={about.title} accent="pink" />}
-          />
-          <p>{about.paragraphs[0]}</p>
-        </GlassPanel>
-      </Section>
-
+      <AboutSection />
       <ProjectsSection />
 
       <Section id={SECTION_IDS.skills} titleId="skills-title" accent="ink">

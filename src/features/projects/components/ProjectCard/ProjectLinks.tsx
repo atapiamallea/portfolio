@@ -37,7 +37,7 @@ function buildProjectLinks(
  */
 function ProjectLink({ href, label, projectTitle }: ProjectLinkData) {
   const { dictionary } = useTranslation()
-  const hiddenContext = ` (${projectTitle}, ${dictionary.projects.newTabNotice})`
+  const hiddenContext = ` (${projectTitle}, ${dictionary.common.newTabNotice})`
 
   return (
     <a href={href} target="_blank" rel="noopener noreferrer" className={styles.link}>

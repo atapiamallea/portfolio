@@ -1,0 +1,254 @@
+@use '@/shared/styles/mixins' as *;
+
+// Credencial colgada: cinta arriba y tarjeta de dos caras que gira con el botón de las flechas.
+
+.badge {
+  // Compartidas por las caras y el botón: las caras dejan arriba el hueco del botón.
+  --face-padding: 1.25rem;
+  --face-gap: 0.75rem;
+  --flip-button-size: 2.5rem; // 40px: supera el mínimo de 24px (WCAG 2.5.8)
+
+  display: grid;
+  grid-template-rows: auto 1fr; // cinta y tarjeta: la tarjeta ocupa el alto que sobre
+  justify-items: center;
+  width: min(100%, 16rem);
+  margin-inline: auto;
+}
+
+// ---------- cinta (decoración) ----------
+.lanyard {
+  position: relative;
+  z-index: 1;
+  width: 2.25rem;
+  height: var(--lanyard-height, 2.75rem); // AboutSection la usa para alinear el texto
+  background: repeating-linear-gradient(
+    180deg,
+    var(--color-violet-deep) 0 10px,
+    var(--color-violet) 10px 20px
+  );
+  border: var(--border);
+  border-bottom: none;
+}
+
+// Pinza que sujeta la tarjeta: sobresale por debajo de la cinta.
+.clip {
+  position: absolute;
+  bottom: -0.9rem;
+  left: 50%;
+  width: 1.5rem;
+  height: 1.4rem;
+  background: var(--color-ink);
+  border-radius: 0.3rem;
+  transform: translateX(-50%);
+}
+
+// ---------- tarjeta que cuelga ----------
+// Inclinada desde arriba, como si colgara de la cinta. Al pasar el ratón se balancea.
+// `rotate` (y no `transform`) para no pisar el giro de la tarjeta de dentro.
+// Es grid para que la tarjeta se estire si la columna del texto es más alta.
+.hanger {
+  position: relative;
+  display: grid;
+  width: 100%;
+  perspective: 1200px;
+  rotate: 4deg;
+  transform-origin: top center;
+
+  &:hover {
+    animation: swing 1.4s ease-in-out;
+  }
+}
+
+@keyframes swing {
+  0%,
+  100% {
+    rotate: 4deg;
+  }
+
+  40% {
+    rotate: -3deg;
+  }
+
+  70% {
+    rotate: 2deg;
+  }
+}
+
+// Las dos caras ocupan la misma celda del grid: la tarjeta mide lo que la más alta.
+.card {
+  display: grid;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+}
+
+.flipped {
+  transform: rotateY(180deg);
+}
+
+.face {
+  display: grid;
+  grid-area: 1 / 1;
+  gap: var(--face-gap);
+  align-content: start;
+  padding: var(--face-padding);
+  padding-top: calc(var(--face-padding) + var(--flip-button-size) + var(--face-gap));
+  background:
+    repeating-linear-gradient(90deg, transparent 0 14px, rgb(13 13 13 / 7%) 14px 28px),
+    var(--color-lime);
+  border-radius: var(--radius-lg);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+
+  @include brutal-border;
+  @include brutal-shadow;
+}
+
+// El reverso estira el recuadro discontinuo hasta abajo.
+.back {
+  align-content: stretch;
+  transform: rotateY(180deg);
+}
+
+// ---------- botón de girar ----------
+// Fuera de .card: no gira con ella. Va arriba a la derecha, en el hueco que dejan las caras,
+// separado del borde lo mismo que el contenido: queda alineado con el lado derecho de la foto.
+.flipButton {
+  --shadow-offset: 3px;
+
+  position: absolute;
+  top: calc(var(--border-width) + var(--face-padding));
+  right: calc(var(--border-width) + var(--face-padding));
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: var(--flip-button-size);
+  height: var(--flip-button-size);
+  color: var(--color-ink);
+  background: var(--color-paper);
+  border-radius: var(--radius-pill);
+
+  @include brutal-border;
+  @include brutal-shadow;
+  @include press-effect;
+}
+
+.flipIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+// ---------- cara delantera ----------
+.photo {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 5; // vertical, como la foto: deja ver hasta la camiseta
+  overflow: hidden;
+  color: var(--accent-text);
+  background: var(--accent-background);
+  border-radius: var(--radius-md);
+
+  @include brutal-border;
+}
+
+.initial {
+  font-family: var(--font-display);
+  font-size: 8rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.photoImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+// Etiqueta con nombre y rol: recta y con el mismo borde y esquinas que la foto,
+// para que las dos cajas queden alineadas. overflow recorta la línea divisoria en las esquinas.
+.nameLabel {
+  display: grid;
+  overflow: hidden;
+  text-align: center;
+  background: var(--color-paper);
+  border-radius: var(--radius-md);
+
+  @include brutal-border;
+}
+
+.name {
+  padding: 0.35rem 0.5rem 0.2rem;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.role {
+  padding: 0.25rem 0.5rem;
+  font-weight: 600;
+  border-top: 2px solid var(--color-ink);
+}
+
+.socialList {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: center;
+}
+
+.socialLink {
+  display: grid;
+  place-items: center;
+  width: 2.75rem; // 44px: objetivo táctil cómodo
+  height: 2.75rem;
+  color: var(--color-lime);
+  background: var(--color-ink);
+  border-radius: var(--radius-sm);
+  transition: transform 0.15s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.socialIcon {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+// ---------- cara trasera ----------
+// Borde discontinuo interior, como el reverso de una acreditación.
+// space-between: el rol arriba, el stack abajo y las estadísticas en medio.
+.backContent {
+  display: grid;
+  gap: 1.25rem;
+  align-content: space-between;
+  padding: 1.25rem 1rem;
+  border: 2px dashed var(--color-ink);
+  border-radius: var(--radius-md);
+}
+
+.backRole {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 900;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.stack {
+  display: grid;
+  gap: 0.25rem;
+  padding-top: 1rem;
+  border-top: 2px dashed var(--color-ink);
+}
+
+.stackLabel {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.stackList {
+  font-weight: 700;
+}
