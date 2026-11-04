@@ -27,6 +27,26 @@
   font-weight: 900;
 }
 
+// Móvil: solo el icono, del mismo alto que los demás controles, para que quepan todos.
+// Escritorio: el nombre completo.
+.logoIcon {
+  display: block;
+  width: 2.75rem;
+  height: 2.75rem;
+
+  @include respond-to('md') {
+    display: none;
+  }
+}
+
+.logoText {
+  display: none;
+
+  @include respond-to('md') {
+    display: inline;
+  }
+}
+
 // El logo es texto grande y en negrita: le basta 3:1. El violeta da 3.15 sobre paper
 // y 5.3 sobre tinta, así que sirve en los dos temas.
 .logoSuffix {

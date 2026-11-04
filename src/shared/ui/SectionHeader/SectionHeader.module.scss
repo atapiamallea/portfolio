@@ -5,6 +5,8 @@
   align-items: flex-start;
 }
 
+// El mínimo también depende del ancho: en móviles estrechos, palabras largas como
+// "SELECCIONADOS" no caben a 2.5rem. A partir de unos 420px el mínimo ya es 2.5rem.
 .title {
-  font-size: clamp(2.5rem, 7vw, 5.5rem);
+  font-size: clamp(min(2.5rem, 9.5vw), 7vw, 5.5rem);
 }

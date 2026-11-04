@@ -33,8 +33,10 @@
 
 // El espacio entre la cabecera y el resto del contenido lo pone la sección,
 // así los componentes de dentro no necesitan márgenes externos.
+// minmax(0, 1fr): sin esto, un contenido ancho ensancharía la columna y se saldría de la pantalla.
 .content {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: clamp(2rem, 5vw, 3rem);
   max-width: var(--content-max-width);
   margin-inline: auto;

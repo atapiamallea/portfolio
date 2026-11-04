@@ -46,7 +46,8 @@
 }
 
 // ---------- tarjeta que cuelga ----------
-// Inclinada desde arriba, como si colgara de la cinta. Al pasar el ratón se balancea.
+// Con ratón, inclinada desde arriba como si colgara de la cinta, y se balancea al pasar por
+// encima. En pantallas táctiles no hay balanceo y la inclinación parecería un error: va recta.
 // `rotate` (y no `transform`) para no pisar el giro de la tarjeta de dentro.
 // Es grid para que la tarjeta se estire si la columna del texto es más alta.
 .hanger {
@@ -54,11 +55,14 @@
   display: grid;
   width: 100%;
   perspective: 1200px;
-  rotate: 4deg;
   transform-origin: top center;
 
-  &:hover {
-    animation: swing 1.4s ease-in-out;
+  @media (hover: hover) {
+    rotate: 4deg;
+
+    &:hover {
+      animation: swing 1.4s ease-in-out;
+    }
   }
 }
 
