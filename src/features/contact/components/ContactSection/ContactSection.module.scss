@@ -7,9 +7,20 @@
   text-align: center;
 }
 
-// La cabecera alinea a la izquierda por defecto: aquí se centra.
+// El título va centrado, pero el rótulo ("04 — Contacto") sigue a la izquierda, como en
+// el resto de secciones. La cabecera ocupa todo el ancho para que el rótulo llegue al borde.
 .header {
+  width: 100%;
   align-items: center;
+
+  > :first-child {
+    align-self: flex-start;
+  }
+
+  // Más aire entre el rótulo, a la izquierda, y el título, centrado.
+  h2 {
+    margin-block-start: clamp(1rem, 3vw, 2rem);
+  }
 }
 
 .intro {
@@ -26,7 +37,9 @@
   justify-content: center;
 }
 
-// La dirección de correo es larga: en pantallas estrechas puede partirse en dos líneas.
-.emailButton {
+// La dirección de correo es larga. En pantallas estrechas el relleno lateral baja para que
+// quepa en una línea; si aun así no cabe, puede partirse antes que salirse de la pantalla.
+.emailActions .emailButton {
+  padding-inline: min(1.6rem, 5vw);
   overflow-wrap: anywhere;
 }

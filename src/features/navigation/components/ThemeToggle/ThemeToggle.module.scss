@@ -1,8 +1,10 @@
 @use '@/shared/styles/mixins' as *;
 
 // Misma altura que el selector de idioma y el botón ☰: 44px.
+// flex-shrink: 0 porque, si falta sitio en la barra, el navegador lo aplastaría.
 .toggle {
   display: grid;
+  flex-shrink: 0;
   place-items: center;
   width: 2.75rem;
   height: 2.75rem;
