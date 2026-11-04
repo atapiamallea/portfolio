@@ -11,6 +11,8 @@ import { NavigationLink } from './NavigationLink'
 import styles from './Navbar.module.scss'
 
 const NAVIGATION_LIST_ID = 'navigation-links'
+const LOGO_ICON_PATH = '/favicon.svg'
+const LOGO_NAME = `${SITE_OWNER_NAME}${LOGO_SUFFIX}`
 
 function renderNavigationLink(link: NavigationLinkData) {
   return <NavigationLink key={link.sectionId} link={link} />
@@ -30,9 +32,13 @@ export function Navbar() {
 
   return (
     <header className={styles.navbar} onKeyDown={handleKeyDown}>
-      <a href={homeHref} className={styles.logo}>
-        {SITE_OWNER_NAME}
-        <span className={styles.logoSuffix}>{LOGO_SUFFIX}</span>
+      {/* En móvil solo se ve el icono: aria-label mantiene el nombre del enlace en todos los tamaños. */}
+      <a href={homeHref} className={styles.logo} aria-label={LOGO_NAME}>
+        <img src={LOGO_ICON_PATH} alt="" className={styles.logoIcon} />
+        <span className={styles.logoText}>
+          {SITE_OWNER_NAME}
+          <span className={styles.logoSuffix}>{LOGO_SUFFIX}</span>
+        </span>
       </a>
 
       <ThemeToggle />
