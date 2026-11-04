@@ -88,9 +88,10 @@ $overflow-per-side: calc(($tilt-scale - 1) / 2 * 100%);
   background: var(--color-paper);
   border-radius: var(--radius-pill);
 
-  @include brutal-border;
-  @include brutal-shadow;
-  @include press-effect;
+  // Va encima de la cinta verde: borde y sombra tinta en los dos temas.
+  @include brutal-border(var(--color-ink));
+  @include brutal-shadow(var(--color-ink));
+  @include press-effect(var(--color-ink));
 }
 
 // Sin movimiento no hay nada que pausar.
