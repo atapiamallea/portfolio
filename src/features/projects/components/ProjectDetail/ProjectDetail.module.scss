@@ -1,0 +1,198 @@
+@use '@/shared/styles/mixins' as *;
+
+// ---------- cabecera ----------
+.intro {
+  display: grid;
+  gap: 1rem;
+  justify-items: start;
+}
+
+.backLink {
+  display: inline-flex;
+  gap: 0.4rem;
+  align-items: center;
+  min-height: 2.75rem; // 44px: objetivo táctil cómodo
+  font-weight: 700;
+
+  &:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+  }
+}
+
+// Como en SectionHeader: en móviles estrechos el mínimo también baja con el ancho,
+// para que "FUNDACIÓN" quepa sin scroll horizontal.
+.title {
+  font-size: clamp(min(2.5rem, 9.5vw), 7vw, 4.25rem);
+  line-height: 1;
+
+  // Solo recibe el foco por código al entrar en la página: no es un control y no necesita anillo.
+  &:focus {
+    outline: none;
+  }
+}
+
+.introduction {
+  max-width: 60ch;
+  font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+}
+
+// ---------- bloques del cuerpo ----------
+// Separados por espacio, sin líneas: son partes de la misma página.
+.blocks {
+  display: grid;
+  gap: clamp(3.5rem, 8vw, 5.5rem);
+}
+
+.block {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.blockHeader {
+  display: grid;
+  gap: 0.6rem;
+  justify-items: start;
+}
+
+// Título discreto: el color lo pone la píldora, el título solo nombra el bloque.
+.blockTitle {
+  font-size: clamp(1.35rem, 3vw, 1.75rem);
+}
+
+// ---------- demo ----------
+// En escritorio, el vídeo a la izquierda y los capítulos en columna a la derecha:
+// la página es más corta y los capítulos se leen como un índice.
+.demo {
+  display: grid;
+  gap: 2rem;
+
+  @include respond-to('lg') {
+    grid-template-columns: minmax(0, 2.4fr) minmax(15rem, 1fr);
+    align-items: start;
+  }
+}
+
+.figure {
+  display: grid;
+  gap: 0.9rem;
+  margin: 0;
+}
+
+// Borde del color del texto (sirve en los dos temas) y sombra verde para que el vídeo destaque.
+// 'auto 16 / 9': reserva un hueco 16:9 mientras carga y luego usa la proporción real del vídeo.
+.video {
+  display: block;
+  width: 100%;
+  aspect-ratio: auto 16 / 9;
+  background: var(--color-ink);
+  border-radius: var(--radius-md);
+
+  @include brutal-border(currentColor);
+  @include brutal-shadow(var(--color-green));
+}
+
+.caption {
+  max-width: 60ch;
+  font-size: 0.95rem;
+}
+
+// ---------- capítulos ----------
+.chapters {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.chaptersTitle {
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+}
+
+.chapterList {
+  display: grid;
+  gap: 0.5rem;
+  justify-items: start;
+}
+
+// Subrayado grueso, como "Descargar CV": al pasar el ratón se rellena de verde.
+// currentColor: el subrayado es del color del texto, tinta en claro y papel en oscuro.
+.chapter {
+  display: inline-flex;
+  gap: 0.6rem;
+  align-items: center;
+  min-height: 2.75rem; // 44px: objetivo táctil cómodo
+  padding-inline: 0.4rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-align: start;
+  border-bottom: 3px solid currentColor;
+  transition:
+    color 0.15s ease,
+    background 0.15s ease;
+
+  &:hover {
+    color: var(--color-ink);
+    background: var(--color-green);
+  }
+}
+
+.chapterTime {
+  font-variant-numeric: tabular-nums;
+  opacity: 0.7;
+}
+
+// ---------- mi aporte ----------
+// Dos columnas en escritorio; cada punto con una barra a la izquierda para separarlos sin cajas.
+.contributionList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(22rem, 100%), 1fr));
+  gap: 1.5rem 2.5rem;
+}
+
+.contribution {
+  padding-inline-start: 1rem;
+  font-size: 1.05rem;
+  border-inline-start: var(--border);
+}
+
+// La primera barra (liderazgo) en rosa, como la píldora "Mi aporte": marca el punto de partida.
+.contribution:first-child {
+  border-inline-start-color: var(--color-pink);
+}
+
+// ---------- arquitectura ----------
+// Tantas columnas como quepan, de 18rem como mínimo. En escritorio, tres fijas:
+// con cuatro, la quinta nota se quedaba sola en su fila.
+.noteGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(18rem, 100%), 1fr));
+  gap: 1.25rem;
+
+  @include respond-to('lg') {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+// Mismo cristal más blanco que las tarjetas de proyecto: se separa mejor del fondo de papel.
+.note {
+  --glass-opacity: 60%;
+  --glass-saturation: 100%;
+
+  display: grid;
+  gap: 0.6rem;
+  align-content: start; // con height: 100%, sin esto el texto se separaría del título
+  justify-items: start;
+  height: 100%;
+}
+
+.noteTitle {
+  font-size: 1.25rem;
+}
+
+// ---------- stack y código ----------
+.stack {
+  display: grid;
+  gap: 1rem;
+  max-width: 50rem;
+}

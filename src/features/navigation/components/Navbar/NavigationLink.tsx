@@ -1,3 +1,4 @@
+import { buildSectionHref } from '@/shared/config/sections'
 import { useTranslation } from '@/shared/i18n'
 import { joinClassNames } from '@/shared/lib/joinClassNames'
 import type { NavigationLinkData } from '../../data/navigationLinks'
@@ -11,7 +12,7 @@ interface NavigationLinkProps {
 export function NavigationLink({ link }: NavigationLinkProps) {
   const { dictionary } = useTranslation()
   const label = dictionary.navigation.links[link.labelKey]
-  const href = `#${link.sectionId}`
+  const href = buildSectionHref(link.sectionId)
   const linkClassName = joinClassNames(styles.link, link.isCallToAction && styles.callToAction)
 
   return (
