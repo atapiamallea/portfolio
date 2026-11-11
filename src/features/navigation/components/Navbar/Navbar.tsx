@@ -1,4 +1,4 @@
-import { SECTION_IDS } from '@/shared/config/sections'
+import { buildSectionHref, SECTION_IDS } from '@/shared/config/sections'
 import { LOGO_SUFFIX, SITE_OWNER_NAME } from '@/shared/config/site'
 import { useTranslation } from '@/shared/i18n'
 import { joinClassNames } from '@/shared/lib/joinClassNames'
@@ -27,7 +27,7 @@ export function Navbar() {
   const { dictionary } = useTranslation()
   const { isOpen, toggleButtonRef, toggleMenu, handleKeyDown, handleLinksClick } = useMobileMenu()
   const linksClassName = joinClassNames(styles.links, isOpen && styles.open)
-  const homeHref = `#${SECTION_IDS.hero}`
+  const homeHref = buildSectionHref(SECTION_IDS.hero)
   const navigationLinks = NAVIGATION_LINKS.map(renderNavigationLink)
 
   return (

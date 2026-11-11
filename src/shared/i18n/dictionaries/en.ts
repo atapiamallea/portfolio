@@ -83,6 +83,21 @@ export const en: Dictionary = {
       frontend: 'Frontend code',
       backend: 'Backend code',
     },
+    cardLinkHint: 'view demo and details',
+    detail: {
+      backLink: 'Back to projects',
+      demoTitle: 'Demo',
+      chaptersTitle: 'Jump to a part of the video',
+      sections: {
+        demo: { label: 'Demo', title: 'A walk through the app' },
+        contributions: { label: 'My contribution', title: 'What I did in the team' },
+        architecture: { label: 'Architecture', title: "How it's built" },
+        stack: { label: 'Stack', title: 'Technologies and code' },
+      },
+      videoFallback: 'Your browser cannot play this video.',
+      notFoundTitle: 'Project not found',
+      notFoundText: 'The link may be mistyped or the project may no longer exist.',
+    },
   },
   skills: {
     label: '03 — Skills',

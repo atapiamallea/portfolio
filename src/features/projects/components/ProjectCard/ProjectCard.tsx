@@ -4,6 +4,7 @@ import { ChipList, GlassPanel, Tag } from '@/shared/ui'
 import type { Project, ProjectTeamType } from '../../model/project'
 import { ProjectLinks } from './ProjectLinks'
 import { ProjectThumbnail } from './ProjectThumbnail'
+import { ProjectTitle } from './ProjectTitle'
 import styles from './ProjectCard.module.scss'
 
 // Record obliga a dar un color a cada tipo: si se añade uno nuevo, no compila hasta elegirlo.
@@ -32,7 +33,7 @@ export function ProjectCard({ project, number }: ProjectCardProps) {
         {tagLabel}
       </Tag>
       <ProjectThumbnail project={project} number={number} />
-      <h3 className={styles.title}>{project.title}</h3>
+      <ProjectTitle project={project} />
       <p className={styles.description}>{description}</p>
       <ChipList label={projectTexts.technologiesLabel} items={project.technologies} />
       <ProjectLinks project={project} />

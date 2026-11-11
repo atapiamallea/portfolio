@@ -1,5 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import { BrowserRouter } from 'react-router'
 import { LocaleProvider } from '@/shared/i18n'
 import '@/shared/styles/global.scss'
 import { ThemeProvider } from '@/shared/theme'
@@ -13,12 +14,14 @@ if (rootElement === null) {
 
 createRoot(rootElement).render(
   <StrictMode>
-    <ThemeProvider>
-      <LocaleProvider>
-        <AppLayout>
-          <App />
-        </AppLayout>
-      </LocaleProvider>
-    </ThemeProvider>
+    <BrowserRouter>
+      <ThemeProvider>
+        <LocaleProvider>
+          <AppLayout>
+            <App />
+          </AppLayout>
+        </LocaleProvider>
+      </ThemeProvider>
+    </BrowserRouter>
   </StrictMode>,
 )
