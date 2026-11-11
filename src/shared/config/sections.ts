@@ -13,3 +13,12 @@ export type SectionId = (typeof SECTION_IDS)[keyof typeof SECTION_IDS]
 
 /** Destino del skip-link: el <main> de la página. */
 export const MAIN_CONTENT_ID = 'main-content'
+
+/**
+ * Enlace a una sección de la página principal que funciona desde cualquier ruta:
+ * 'proyectos' → '/#proyectos'. Desde la página de detalle de un proyecto, un `#proyectos`
+ * a secas buscaría la sección en la página actual y no la encontraría.
+ */
+export function buildSectionHref(sectionId: SectionId): string {
+  return `/#${sectionId}`
+}

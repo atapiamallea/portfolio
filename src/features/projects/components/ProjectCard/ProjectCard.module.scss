@@ -24,9 +24,17 @@
       inset 0 0 0 2px var(--glass-edge),
       inset 0 12px 24px var(--glass-glow);
   }
+
+  // El foco está en el enlace del título, pero se marca la tarjeta entera, que es lo que se pulsa.
+  &:has(.titleLink:focus-visible) {
+    outline: 3px solid var(--focus-color);
+    outline-offset: 3px;
+  }
 }
 
+// pointer-events: none: la etiqueta solo informa; el clic la atraviesa hasta el enlace de la tarjeta.
 .tag {
+  pointer-events: none;
   position: absolute;
   top: 0.6rem;
   right: 0.6rem;
@@ -60,6 +68,21 @@
   font-size: 1.8rem;
 }
 
+// "Stretched link": el ::after se estira hasta los bordes de la tarjeta (position: relative),
+// así toda la tarjeta lleva al detalle sin meter un enlace dentro de otro.
+.titleLink {
+  &::after {
+    position: absolute;
+    inset: 0;
+    content: '';
+    border-radius: var(--radius-xl); // el mismo que el panel de cristal
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+}
+
 // Ocupa el espacio que sobra: así los enlaces quedan alineados abajo en todas las tarjetas.
 .description {
   flex: 1;
@@ -68,6 +91,9 @@
 
 // ---------- enlaces ----------
 .links {
+  // Por encima del enlace estirado del título: los repositorios siguen siendo clicables.
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-wrap: wrap;
   column-gap: 1.25rem;

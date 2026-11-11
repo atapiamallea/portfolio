@@ -89,6 +89,24 @@ export const es = {
       frontend: 'Código frontend',
       backend: 'Código backend',
     },
+    // Solo para lectores de pantalla: el título de la tarjeta enlaza a su página de detalle.
+    cardLinkHint: 'ver demo y detalles',
+    detail: {
+      backLink: 'Volver a proyectos',
+      demoTitle: 'Demo',
+      chaptersTitle: 'Ir a una parte del vídeo',
+      // Cabecera de cada bloque del detalle: rótulo de color y un título pequeño que no lo repite.
+      // Sin números en el rótulo: los bloques opcionales dejarían huecos en la cuenta.
+      sections: {
+        demo: { label: 'Demo', title: 'Recorrido por la app' },
+        contributions: { label: 'Mi aporte', title: 'Qué hice en el equipo' },
+        architecture: { label: 'Arquitectura', title: 'Cómo está construido' },
+        stack: { label: 'Stack', title: 'Tecnologías y código' },
+      },
+      videoFallback: 'Tu navegador no puede reproducir este vídeo.',
+      notFoundTitle: 'Proyecto no encontrado',
+      notFoundText: 'Puede que el enlace esté mal escrito o que el proyecto ya no exista.',
+    },
   },
   skills: {
     label: '03 — Skills',

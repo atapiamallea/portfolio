@@ -17,6 +17,11 @@
   }
 }
 
+// Sigue a la sección anterior: el cambio de fondo ya marca el paso, sin línea que la corte.
+.continuation {
+  border-top: none;
+}
+
 .section[data-accent='violet'] {
   --section-grid-color: rgb(255 255 255 / 20%);
 }
@@ -29,6 +34,12 @@
 
 .grid {
   @include grid-bg(var(--section-grid-color));
+}
+
+// Solo recibe el foco por código (al llegar desde '/#seccion'): no es un control, así que no
+// necesita anillo. El siguiente Tab ya lleva al primer elemento de la sección.
+.section:focus {
+  outline: none;
 }
 
 // El espacio entre la cabecera y el resto del contenido lo pone la sección,
