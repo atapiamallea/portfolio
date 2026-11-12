@@ -5,7 +5,7 @@ export const en: Dictionary = {
   meta: {
     title: 'Andrea — Full Stack Developer',
     description:
-      'Portfolio of Andrea, Full Stack developer: applications built with React, Java, Spring Boot and PostgreSQL.',
+      'Andrea Tapia, full stack developer in Barcelona with a background in digital marketing. React, Java and Spring Boot.',
   },
   common: {
     newTabNotice: 'opens in a new tab',
@@ -42,7 +42,7 @@ export const en: Dictionary = {
   hero: {
     title: { start: "Hi, I'm ", highlight: 'Andrea', end: '' },
     subtitle:
-      'Full Stack developer working with React and Java. I build interfaces with personality and APIs that work.',
+      'Full stack developer (React + Java) with a marketing eye: I build products thinking about the user, the business and whoever maintains the code next.',
     primaryAction: 'See projects ↓',
     secondaryAction: "Let's talk",
   },
@@ -50,8 +50,8 @@ export const en: Dictionary = {
     label: '01 — About me',
     title: { start: 'From clapperboard ', highlight: 'to commit', end: '.' },
     paragraphs: [
-      'Full Stack developer working with Java and React. I come from digital marketing, and that experience helps me think beyond the code: what the client needs, what makes sense for the business and how to build it in a simple, scalable way.',
-      "On real projects I've worked in a Scrum team, and I've also taken a solo one from start to finish: design, frontend, backend and tests.",
+      "I didn't change careers: I followed the thread. Producing TV led me to making videos for social media, social media to digital marketing, and a website (on WordPress) to code.",
+      "Every stage taught me something: in TV, to work as a team and to deadlines, and in marketing, to think about who's on the other side of the screen. At the full stack bootcamp I brought it all together in Collapp, a platform I developed for creatives in the audiovisual industry, the world I come from :)",
     ],
     badge: {
       role: 'Full Stack Developer',
@@ -63,7 +63,6 @@ export const en: Dictionary = {
       origin: 'From La Paz, Bolivia. Living in Barcelona since 2021.',
       factsLabel: 'Fun facts',
       facts: [
-        'From clapperboard to commit: 4 years at a TV channel, then digital marketing, and now development.',
         'My hobby: artistic and special effects makeup.',
         'I design and make my own earrings.',
         'I love anything creative, on and off the screen.',
