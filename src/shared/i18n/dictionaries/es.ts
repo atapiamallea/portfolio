@@ -5,7 +5,7 @@ export const es = {
   meta: {
     title: 'Andrea — Full Stack Developer',
     description:
-      'Portfolio de Andrea, desarrolladora Full Stack: aplicaciones con React, Java, Spring Boot y PostgreSQL.',
+      'Andrea Tapia, desarrolladora full stack en Barcelona con background en marketing digital. React, Java y Spring Boot.',
   },
   // Textos que usan varias secciones.
   common: {
@@ -44,7 +44,7 @@ export const es = {
   hero: {
     title: { start: 'Hola, soy ', highlight: 'Andrea', end: '' },
     subtitle:
-      'Desarrolladora Full Stack con React y Java. Construyo interfaces con personalidad y APIs que funcionan.',
+      'Desarrolladora full stack (React + Java) con ojo de marketing: construyo producto pensando en el usuario, en el negocio y en quien mantendrá el código después.',
     primaryAction: 'Ver proyectos ↓',
     secondaryAction: 'Hablemos',
   },
@@ -52,8 +52,9 @@ export const es = {
     label: '01 — Sobre mí',
     title: { start: 'De la claqueta ', highlight: 'al commit', end: '.' },
     paragraphs: [
-      'Desarrolladora Full Stack con Java y React. Vengo del mundo del marketing digital y esa experiencia me ayuda a pensar más allá del código: qué necesita el cliente, qué tiene sentido para el negocio y cómo construirlo de forma simple y escalable.',
-      'En proyectos reales he trabajado con Scrum en equipo y también he sacado adelante uno individual de principio a fin: diseño, frontend, backend y tests.',
+      // Cuenta la evolución como una cadena: cada etapa llevó a la siguiente.
+      'No cambié de carrera: tiré del hilo. Producir televisión me llevó a crear vídeos para redes, las redes, al marketing digital, y una web (en WordPress) al código.',
+      'De cada etapa aprendí algo: en la tele, a trabajar en equipo y con plazos, en el marketing, a pensar en quien está al otro lado de la pantalla. En el bootcamp full stack lo junté todo en Collapp, una plataforma que desarrollé para creativos del sector audiovisual, el mundo del que vengo :)',
     ],
     badge: {
       role: 'Full Stack Developer',
@@ -67,8 +68,6 @@ export const es = {
       origin: 'De La Paz, Bolivia. En Barcelona desde 2021.',
       factsLabel: 'Datos curiosos',
       facts: [
-        // Explica el título de la sección, "De la claqueta al commit".
-        'De la claqueta al commit: 4 años en un canal de televisión, luego marketing digital y ahora desarrollo.',
         'Mi hobby: el maquillaje artístico y de efectos especiales.',
         'Diseño y hago mis propios pendientes.',
         'Me encanta todo lo creativo, dentro y fuera de la pantalla.',
